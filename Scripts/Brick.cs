@@ -51,6 +51,7 @@ namespace uLua {
             /// Invokes the BrickHit event.
             private void OnCollisionEnter2D(Collision2D Other) {
                 API.Invoke("BrickHit", this);
+                Invoke("OnHit");
             }
         }
     }
