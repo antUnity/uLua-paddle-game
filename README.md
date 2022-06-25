@@ -1,23 +1,24 @@
 # uLua Paddle Game
 
-uLua is a game API framework for Unity. It aims to streamline the implementation of a game API for your Unity Project.
+uLua is a Game API framework for Unity. It aims to streamline the implementation of a Game API in Lua for your Unity Project.
 
+uLua wraps around MoonSharp and provides an object oriented framework for API development in Lua.
 It works by setting up an application-wide Lua context and exposing selected game objects to it.
-Any objects exposed to Lua can then be manipulated in Lua scripts to implement game behaviour in your project.
-User-defined Lua scripts may be loaded at runtime to allow modding of your project. 
+Objects exposed to Lua can then be manipulated in Lua scripts to implement game behaviour in your project.
+User-defined Lua scripts may be loaded at runtime to allow modding of your project.
 
 uLua implements the following features:
 - Script execution framework which allows Lua scripts to be executed from the Resources folder or an external directory.
-- Fully customisable event handling system for Lua which allows you to invoke events from C# and handle them in Lua.
-- Custom classes to streamline exposing your game objects and data structures to Lua (uLua.ExposedClass and uLua.ExposedMonoBehaviour).
-- Fully customisable callback system for objects exposed to Lua.
+- Fully customisable event handling system which allows you to invoke events from C# and handle them in Lua.
+- Custom classes to streamline exposing your game objects and data structures to Lua in order to develop your Game API.
+- Fully customisable callback system for objects exposed to your Game API.
 
 In this project I have developed an API for a basic paddle game. It is meant to demonstrate the flexibility of uLua APIs as a modding tool.
 
 ## Dependencies
 
 - [MoonSharp for Unity](https://assetstore.unity.com/packages/tools/moonsharp-33776)
-- [uLua for Unity](/)
+- [uLua for Unity](https://assetstore.unity.com/packages/slug/226043)
 
 ## Documentation
 
