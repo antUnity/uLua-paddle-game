@@ -1,6 +1,6 @@
 --[[ June 2022 																											]]
 --[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game.						]]
---[[ It is meant to demonstrate the flexibility of uLua APIs as a modding tool.											]]
+--[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.											]]
 
 math.randomseed(os.time());					-- Used to generate random seed.
 

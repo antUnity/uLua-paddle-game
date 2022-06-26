@@ -30,10 +30,8 @@ var NAVTREE =
       [ "Documentation", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md2", null ],
       [ "Usage Tutorial", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md3", [
         [ "1. Scripting API", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md4", [
-          [ "1.1. Game Objects", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md5", null ],
-          [ "1.2. Events and Callback Functions", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md6", null ]
-        ] ],
-        [ "2. Modding the Game", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md7", null ]
+          [ "1.1. Game Objects", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md5", null ]
+        ] ]
       ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [

@@ -1,19 +1,19 @@
 # uLua Paddle Game
 
-uLua is a Game API framework for Unity. It aims to streamline the implementation of a Game API in Lua for your Unity Project.
+In this project I have developed an API for a basic paddle game to demonstrate the flexibility of the uLua API framework as a modding tool.
+
+uLua is a Game API framework for Unity. It aims to streamline the development of a Game API in Lua for your Unity Project.
 
 uLua wraps around MoonSharp and provides an object oriented framework for API development in Lua.
-It works by setting up an application-wide Lua context and exposing selected game objects to it.
-Objects exposed to Lua can then be manipulated in Lua scripts to implement game behaviour in your project.
-User-defined Lua scripts may be loaded at runtime to allow modding of your project.
+It works by setting up an application-wide Lua context and exposing game objects to it.
+Objects exposed to Lua can then be accessed in Lua scripts to implement game behaviour in your project.
+User-defined Lua scripts may be executed at runtime to allow modding of your project.
 
 uLua implements the following features:
 - Script execution framework which allows Lua scripts to be executed from the Resources folder or an external directory.
-- Fully customisable event handling system which allows you to invoke events from C# and handle them in Lua.
-- Custom classes to streamline exposing your game objects and data structures to Lua in order to develop your Game API.
-- Fully customisable callback system for objects exposed to your Game API.
-
-In this project I have developed an API for a basic paddle game. It is meant to demonstrate the flexibility of uLua APIs as a modding tool.
+- Event handling system which allows you to invoke events from C# and handle them in Lua.
+- Base classes which streamline exposing your game objects and data structures to Lua in order to develop your Game API.
+- Callback function system for your Game API objects.
 
 ## Dependencies
 
@@ -22,34 +22,36 @@ In this project I have developed an API for a basic paddle game. It is meant to 
 
 ## Documentation
 
-This project was made as a demo for uLua. This document is accompanied by source code documentation. For any further questions do not hesitate to contact support@antsoftware.co.uk.
+This document is accompanied by source code documentation, which is found on the [GitHub pages](https://antunity.github.io/uLua-paddle-game/) of this repository.
+For any further questions do not hesitate to contact support@antsoftware.co.uk.
 
-Working on this project and documentation has taken many hours. Please support me by starring this project on GitHub. If you purchased uLua, please leave a review on the asset store! Follow my [Twitter](https://twitter.com/_ANTSoftware "@_ANTSoftware")!
+Working on this project and documentation has taken many hours. Please support me by starring this project on GitHub.
+If you purchased uLua, please leave a review on the asset store! Follow my [Twitter](https://twitter.com/_ANTSoftware "@_ANTSoftware")!
 
 ## Usage Tutorial
 
-The Unity scene for this game does not contain a ball, paddle, or bricks. The levels for this game are set up entirely through the game API in Lua.
+***Note: It is recommended to read the [uLua Usage Tutorial](https://antunity.github.io/uLua-docs) in the full documentation of uLua before reading this document.***
 
-The very basic behaviour and game logic of the game is implemented in Unity Engine. For instance:
+The basic behaviour and game logic of this game are implemented in Unity Engine. Specifically:
+- Controller scripts for uLua.PaddleGame.Paddle and uLua.PaddleGame.Ball objects.
+- Invoking of game events and object callback functions.
 - Collision detection logic for all objects.
-- Controller scripts for uLua.PaddleGame.Paddle and uLua.PaddleGame.Ball objects (uLua.PaddleGame.BallController, uLua.PaddleGame.PaddleController).
-- A "nudge" for uLua.PaddleGame.Ball objects to prevent them from getting stuck bouncing back and forth in a straight line.
-- Invoking events and object callback functions.
 
-The Lua scene script implements the rest of the gameplay in this simple Paddle-style game.
+However, the Unity scene for this game does not contain a ball, paddle, or bricks.
+The levels for this game are set up entirely through the Game API in Lua.
 
 ### 1. Scripting API
 
 #### 1.1. Game Objects
 
-The game API contains the following objects/data structures:
+The Game API contains the following objects/data structures:
 - **Game**: Manager object which is used to create and keep track of Balls, Paddles, and Bricks within the level.
 - **Settings**: Data structure which contains the current level, remaining lives, score, and other game settings.
 - **LevelText**: UI element to display the current level.
 - **LivesText**: UI element to display the remaining lives.
 - **ScoreText**: UI element to display the player score.
 
-All ball, brick, and paddle objects are also exposed to the Lua API, however, their names are based on
+All ball, brick, and paddle objects are also exposed to the Game API, however, their names are based on
 the application runtime, unless specified otherwise in the corresponding command:
 
 ```
@@ -57,14 +59,12 @@ Game:AddBall(0, 0, 5, 0.5, "BallName");
 ```
 
 Omitting the last parameter in this method will auto-generate a name of the object. 
-
 The following are examples of auto-generated names:
-- ```Ball12345```
-- ```Brick12345```
-- ```Paddle12345```
 
-Each Lua object contains various methods as defined in their corresponding Unity scripts. For a full list of the members of all object types, refer to the source code documentation.
-Remember that all public members of the following classes are accessible in the game API.
+```Ball12345, Brick12345, Paddle12345```
+
+Each Lua object contains various methods as defined in their corresponding Unity scripts. For a full list of the members of all object types,
+refer to the relevant source code documentation. Remember that all public members of the following classes are accessible in the Game API.
 - uLua.PaddleGame.Ball
 - uLua.PaddleGame.Brick
 - uLua.PaddleGame.Paddle
@@ -112,7 +112,7 @@ C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\UserScripts\
 ```
 --[[ June 2022 																											]]
 --[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game.						]]
---[[ It is meant to demonstrate the flexibility of uLua APIs as a modding tool.											]]
+--[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.							]]
 
 math.randomseed(os.time());					-- Used to generate random seed.
 
