@@ -3,28 +3,43 @@ using System;
 namespace uLua {
     namespace PaddleGame {
         [Serializable]
-        /// Class used to keep track of various game settings. 
-        /** Inherits from LuaClass. All public methods and members of this class are exposed to Lua. */
+        /// <summary>Class which keeps track of various game settings.</summary>
+        /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedClass```. */
         public class Settings : ExposedClass<Settings> {
             // Members
-            public int Level = 0;                   //!< Used to keep track of the current level.
-            public int Lives = 0;                   //!< Used to keep track of remaining lives.
-            public int Score = 0;                   //!< Used to keep track of player score.
-            public int MaximumLevel = 0;            //!< Used to indicate the maximum game level.
+            /** <summary>Keeps track of the current level.</summary> */
+            public int Level = 0;
 
-            public float Delay = 0f;                //!< Delay before the ball is set in motion (in seconds).
-            public float SpeedIncrement = 0f;       //!< Ball/Paddle speed increment per level.
-            public float ColorMultiplier = 0f;      //!< Multiplier to adjust the brick color intensity.
+            /** <summary>Keeps track of remaining lives.</summary> */
+            public int Lives = 0;
+
+            /** <summary>Keeps track of the player score.</summary> */
+            public int Score = 0;
+
+            /** <summary>Indicates the maximum game level.</summary> */
+            public int MaximumLevel = 0;
+
+            /** <summary>Delay before the ball is set in motion (in seconds).</summary> */
+            public float Delay = 0f;
+
+            /** <summary>Ball/Paddle speed increment per level.</summary> */
+            public float SpeedIncrement = 0f;
+
+            /** <summary>Multiplier to adjust the brick color intensity.</summary> */
+            public float ColorMultiplier = 0f;
 
             // Access Methods
             // Public
 
-            /// Public constructor.
-            /** @param Name Sets the name of the object exposed to Lua. */
-            public Settings(string Name, LuaMonoBehaviour Context = null): base(Name, Context) {
+            /// <summary>Public constructor.</summary>
+            /** @param Name Sets the name of the object exposed to Lua.
+             *  @param Context Sets the context of the object exposed to Lua.
+                @param AutoExpose (Optional) Enables/disables the automatic exposure of this object to Lua. */
+            public Settings(string Name, LuaMonoBehaviour Context = null, bool AutoExpose = true): base(Name, Context, AutoExpose) {
             }
 
-            /// The total speed increment based on the current level.
+            /// <summary>The total speed increment based on the current level.</summary>
+            /** This property is exposed to the Game API. */
             public float TotalSpeedIncrement {
                 get { return (Level-1)*SpeedIncrement; }
             }
@@ -32,25 +47,25 @@ namespace uLua {
             // Process Methods
             // Public
 
-            /// Increments player score.
-            /** Invokes a UIUpdate event.
+            /// <summary>Increments player score.</summary>
+            /** This method is exposed to the Game API. Invokes a UIUpdate event.
              *  @param Number The number to be added to the score. */
             public void AddScore(int Number) {
                 Score += Number;
                 API.Invoke("UIUpdate");
             }
 
-            /// Increments the game level.
-            /** Invokes a UIUpdate event.
+            /// <summary>Increments the game level.</summary>
+            /** This method is exposed to the Game API. Invokes a UIUpdate event.
              *  @param Number (Optional) The number of levels to add. Defaults to 1. */
             public void AddLevel(int Number = 1) {
                 Level += Number;
                 API.Invoke("UIUpdate");
             }
 
-            /// Increments player lives.
-            /** Invokes a UIUpdate event. 
-                @param Number (Optional) The number of lives to add. Defaults to 1. */
+            /// <summary>Increments player lives.</summary>
+            /** This method is exposed to the Game API. Invokes a UIUpdate event. 
+             *  @param Number (Optional) The number of lives to add. Defaults to 1. */
             public void AddLife(int Number = 1) {
                 Lives += Number;
                 API.Invoke("UIUpdate");

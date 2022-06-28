@@ -92,40 +92,36 @@ $(document).ready(function(){initNavTree('classu_lua_1_1_paddle_game_1_1_ball.ht
 </div><!--header-->
 <div class="contents">
 
-<p>Wrapper class used to expose ball objects to Lua.  
+<p>Wrapper class which exposes ball objects to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. 
  <a href="classu_lua_1_1_paddle_game_1_1_ball.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a85a117815daeaf8689041462f51338e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html#a85a117815daeaf8689041462f51338e7">AdjustAngle</a> (float Degrees)</td></tr>
-<tr class="memdesc:a85a117815daeaf8689041462f51338e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the angle of motion of the ball by the specified value.  <a href="classu_lua_1_1_paddle_game_1_1_ball.html#a85a117815daeaf8689041462f51338e7">More...</a><br /></td></tr>
+<tr class="memdesc:a85a117815daeaf8689041462f51338e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the angle of motion of the ball by the specified value. <a href="classu_lua_1_1_paddle_game_1_1_ball.html#a85a117815daeaf8689041462f51338e7">More...</a><br /></td></tr>
 <tr class="separator:a85a117815daeaf8689041462f51338e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac315228f6a95f8bc773e4e0afa8eca80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html#ac315228f6a95f8bc773e4e0afa8eca80">Reset</a> ()</td></tr>
-<tr class="memdesc:ac315228f6a95f8bc773e4e0afa8eca80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the position of the ball to its starting position and sets the ball in motion.  <a href="classu_lua_1_1_paddle_game_1_1_ball.html#ac315228f6a95f8bc773e4e0afa8eca80">More...</a><br /></td></tr>
+<tr class="memdesc:ac315228f6a95f8bc773e4e0afa8eca80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the position of the ball to its starting position and sets the ball in motion. <a href="classu_lua_1_1_paddle_game_1_1_ball.html#ac315228f6a95f8bc773e4e0afa8eca80">More...</a><br /></td></tr>
 <tr class="separator:ac315228f6a95f8bc773e4e0afa8eca80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:afcf021eb93fa337aeac886f1e3b5e78a"><td class="memItemLeft" align="right" valign="top"><a id="afcf021eb93fa337aeac886f1e3b5e78a" name="afcf021eb93fa337aeac886f1e3b5e78a"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>Delay</b><code> [get, set]</code></td></tr>
-<tr class="memdesc:afcf021eb93fa337aeac886f1e3b5e78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to access/set the delay (in seconds) before the ball is set in motion. <br /></td></tr>
+<tr class="memitem:afcf021eb93fa337aeac886f1e3b5e78a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html#afcf021eb93fa337aeac886f1e3b5e78a">Delay</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:afcf021eb93fa337aeac886f1e3b5e78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access/set the delay (in seconds) before the ball is set in motion. <a href="classu_lua_1_1_paddle_game_1_1_ball.html#afcf021eb93fa337aeac886f1e3b5e78a">More...</a><br /></td></tr>
 <tr class="separator:afcf021eb93fa337aeac886f1e3b5e78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad93adec210bde518ac079dd557de352f"><td class="memItemLeft" align="right" valign="top"><a id="ad93adec210bde518ac079dd557de352f" name="ad93adec210bde518ac079dd557de352f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsStuck</b><code> [get]</code></td></tr>
-<tr class="memdesc:ad93adec210bde518ac079dd557de352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to check if the ball is in risk of getting stuck bouncing in a straight line (horizontally or vertically). <br /></td></tr>
+<tr class="memitem:ad93adec210bde518ac079dd557de352f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html#ad93adec210bde518ac079dd557de352f">IsStuck</a><code> [get]</code></td></tr>
+<tr class="memdesc:ad93adec210bde518ac079dd557de352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the ball is in risk of getting stuck bouncing in a straight line back and forth (horizontally or vertically). <a href="classu_lua_1_1_paddle_game_1_1_ball.html#ad93adec210bde518ac079dd557de352f">More...</a><br /></td></tr>
 <tr class="separator:ad93adec210bde518ac079dd557de352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addb29041c2f9bd8f1f46dd5f9982342f"><td class="memItemLeft" align="right" valign="top"><a id="addb29041c2f9bd8f1f46dd5f9982342f" name="addb29041c2f9bd8f1f46dd5f9982342f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>Speed</b><code> [get, set]</code></td></tr>
-<tr class="memdesc:addb29041c2f9bd8f1f46dd5f9982342f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to access/set the speed of the ball. <br /></td></tr>
+<tr class="memitem:addb29041c2f9bd8f1f46dd5f9982342f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html#addb29041c2f9bd8f1f46dd5f9982342f">Speed</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:addb29041c2f9bd8f1f46dd5f9982342f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access/set the speed of the ball. <a href="classu_lua_1_1_paddle_game_1_1_ball.html#addb29041c2f9bd8f1f46dd5f9982342f">More...</a><br /></td></tr>
 <tr class="separator:addb29041c2f9bd8f1f46dd5f9982342f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade63122332d31829d2235a06e370e2d1"><td class="memItemLeft" align="right" valign="top"><a id="ade63122332d31829d2235a06e370e2d1" name="ade63122332d31829d2235a06e370e2d1"></a>
-Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>StartingPosition</b><code> [get, set]</code></td></tr>
-<tr class="memdesc:ade63122332d31829d2235a06e370e2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to access/set the starting position of the ball. <br /></td></tr>
+<tr class="memitem:ade63122332d31829d2235a06e370e2d1"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html#ade63122332d31829d2235a06e370e2d1">StartingPosition</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ade63122332d31829d2235a06e370e2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access/set the starting position of the ball. <a href="classu_lua_1_1_paddle_game_1_1_ball.html#ade63122332d31829d2235a06e370e2d1">More...</a><br /></td></tr>
 <tr class="separator:ade63122332d31829d2235a06e370e2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Wrapper class used to expose ball objects to Lua. </p>
-<p >Inherits from LuaMonoBehaviour. All public methods and members of this class are exposed to Lua. </p>
+<div class="textblock"><p >Wrapper class which exposes ball objects to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API.</p>
+<p >All public members of this class are exposed to Lua. Inherits from <code>uLua.ExposedMonoBehaviour</code>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a85a117815daeaf8689041462f51338e7" name="a85a117815daeaf8689041462f51338e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a85a117815daeaf8689041462f51338e7">&#9670;&nbsp;</a></span>AdjustAngle()</h2>
@@ -151,8 +147,8 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>StartingPosition</
 </table>
 </div><div class="memdoc">
 
-<p>Adjusts the angle of motion of the ball by the specified value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Adjusts the angle of motion of the ball by the specified value.</p>
+<p >This method is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. /**</p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Degrees</td><td>The adjustment value (in degrees) for the angle. </td></tr>
   </table>
@@ -184,8 +180,109 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>StartingPosition</
 </table>
 </div><div class="memdoc">
 
-<p>Resets the position of the ball to its starting position and sets the ball in motion. </p>
-<p >This method may be used in Lua but is also used in the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Used to manage all ball, brick, and paddle objects in the scene and to keep track of various game set...">Game</a> class to reset the position of balls. </p>
+<p>Resets the position of the ball to its starting position and sets the ball in motion.</p>
+<p >This method is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="afcf021eb93fa337aeac886f1e3b5e78a" name="afcf021eb93fa337aeac886f1e3b5e78a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcf021eb93fa337aeac886f1e3b5e78a">&#9670;&nbsp;</a></span>Delay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float uLua.PaddleGame.Ball.Delay</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access/set the delay (in seconds) before the ball is set in motion.</p>
+<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+
+</div>
+</div>
+<a id="ad93adec210bde518ac079dd557de352f" name="ad93adec210bde518ac079dd557de352f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93adec210bde518ac079dd557de352f">&#9670;&nbsp;</a></span>IsStuck</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool uLua.PaddleGame.Ball.IsStuck</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the ball is in risk of getting stuck bouncing in a straight line back and forth (horizontally or vertically).</p>
+<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+
+</div>
+</div>
+<a id="addb29041c2f9bd8f1f46dd5f9982342f" name="addb29041c2f9bd8f1f46dd5f9982342f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addb29041c2f9bd8f1f46dd5f9982342f">&#9670;&nbsp;</a></span>Speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float uLua.PaddleGame.Ball.Speed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access/set the speed of the ball.</p>
+<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+
+</div>
+</div>
+<a id="ade63122332d31829d2235a06e370e2d1" name="ade63122332d31829d2235a06e370e2d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade63122332d31829d2235a06e370e2d1">&#9670;&nbsp;</a></span>StartingPosition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 uLua.PaddleGame.Ball.StartingPosition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access/set the starting position of the ball.</p>
+<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
 
 </div>
 </div>

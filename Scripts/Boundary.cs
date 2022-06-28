@@ -2,14 +2,12 @@ using UnityEngine;
 
 namespace uLua {
     namespace PaddleGame {
-        /// Used to implement behaviour for the boundary objects.
+        /// <summary>Implements behaviour for the boundary objects.</summary>
         public class Boundary : MonoBehaviour {
-            // Access Methods
-
             // Process Methods
             // Private
 
-            /// Invokes the BoundaryHit event.
+            /// <summary>Invokes the BoundaryHit event.</summary>
             private void OnCollisionEnter2D(Collision2D Other) {
                 if (Other != null) {
                     GameObject Object = Other.gameObject;

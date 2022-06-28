@@ -59,9 +59,11 @@ Game:AddBall(0, 0, 5, 0.5, "BallName");
 ```
 
 Omitting the last parameter in this method will auto-generate a name of the object. 
-The following are examples of auto-generated names:
+The following is an example of an auto-generated name:
 
-```Ball12345, Brick12345, Paddle12345```
+```
+Ball12345
+```
 
 Each Lua object contains various methods as defined in their corresponding Unity scripts. For a full list of the members of all object types,
 refer to the relevant source code documentation. Remember that all public members of the following classes are accessible in the Game API.

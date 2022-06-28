@@ -2,19 +2,28 @@ using UnityEngine;
 
 namespace uLua {
     namespace PaddleGame {
-        /// Used to implement controls for ball objects.
+        /// <summary>Implements controls for ball objects.</summary>
         public class BallController : MonoBehaviour {
             // Members
-            public float Speed = 0f;                                    //!< Movement speed of the ball object.
-            public float Delay = 0f;                                    //!< Delay (in seconds) before the ball is set in motion.
-            public Vector2 StartingPosition = Vector2.zero;             //!< Starting position of the ball object.
-            private Rigidbody2D Rigidbody2D = null;                     //!< Reference to the Rigidbody2D component of the ball object.
-            private float StartTime = -1f;                              //!< Reference time for the delayed start.
+            /** <summary>Movement speed of the ball object.</summary> */
+            public float Speed = 0f;
+
+            /** <summary>Delay (in seconds) before the ball is set in motion.</summary> */
+            public float Delay = 0f;
+
+            /** <summary>Starting position of the ball object.</summary> */
+            public Vector2 StartingPosition = Vector2.zero;
+
+            /** <summary>Reference to the Rigidbody2D component of the ball object.</summary> */
+            private Rigidbody2D Rigidbody2D = null;
+
+            /** <summary>Reference time for the delayed start.</summary> */
+            private float StartTime = -1f;
 
             // Access Methods
             // Public
 
-            /// Used to check if the ball is in risk of getting stuck bouncing in a straight line (horizontally or vertically).
+            /// <summary>Checks if the ball is in risk of getting stuck bouncing in a straight line back and forth (horizontally or vertically).</summary>
             public bool IsStuck {
                 get {
                     return (Mathf.Abs(Rigidbody2D.velocity.x) <= 0.25f || Mathf.Abs(Rigidbody2D.velocity.y) <= 0.25f);
@@ -24,7 +33,7 @@ namespace uLua {
             // Process Methods
             // Public
 
-            /// Adjusts the angle of motion of the ball by the specified value.
+            /// <summary>Adjusts the angle of motion of the ball by the specified value.</summary>
             /** @param Degrees The adjustment value (in degrees) for the angle. */
             public void AdjustAngle(float Degrees) {
                 if (Rigidbody2D && Rigidbody2D.velocity != Vector2.zero) {
@@ -34,8 +43,8 @@ namespace uLua {
                 }
             }
 
-            /// Resets the position of the ball to its starting position and sets the ball in motion.
-            /** This method is called by the Ball wrapper.*/
+            /// <summary>Resets the position of the ball to its starting position and sets the ball in motion.</summary>
+            /** This method is exposed to the Game API by the uLua.PaddleGame.Ball class. */
             public void Reset () {
                 transform.position = StartingPosition;
                 Start();
@@ -47,13 +56,13 @@ namespace uLua {
                 Rigidbody2D = GetComponent<Rigidbody2D>();
             }
 
-            /// Starts the delay timer to set the ball in motion.
+            /// <summary>Starts the delay timer to set the ball in motion.</summary>
             private void Start() {
                 StartTime = Time.realtimeSinceStartup;
                 if (Rigidbody2D) Rigidbody2D.velocity = Vector2.zero;
             }
 
-            /// Used to set the ball in motion after the delay timer has passed.
+            /// <summary>Sets the ball in motion after the delay timer has passed.</summary>
             private void Update() {
                 if (Rigidbody2D) {
                     if (StartTime >= 0f && Time.realtimeSinceStartup-StartTime > Delay) {

@@ -2,16 +2,17 @@ using UnityEngine;
 
 namespace uLua {
     namespace PaddleGame {
-        /// Wrapper class used to expose ball objects to Lua. 
-        /** Inherits from LuaMonoBehaviour. All public methods and members of this class are exposed to Lua. */
+        /// <summary>Wrapper class which exposes ball objects to the Game API.</summary>
+        /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Ball : ExposedMonoBehaviour<Ball> {
             // Members
-            private BallController Controller = null;       //!< Reference to the BallController component of the ball object.
+            /** <summary>Reference to the BallController component of the ball object.</summary> */
+            private BallController Controller = null;
 
             // Access Methods
 
-            /// Static class constructor.
-            /** Registers the Ball and Vector2 types to Lua. */
+            /// <summary>Static class constructor. Registers the Vector2 type to Lua.</summary>
+            /** This static constructor is only executed once. */
             static Ball() {
                 API.RegisterType<Vector2>();
                 Lua.Set("Vector2", new Vector2());
@@ -19,24 +20,28 @@ namespace uLua {
 
             // Public
 
-            /// Used to access/set the delay (in seconds) before the ball is set in motion.
+            /// <summary>Access/set the delay (in seconds) before the ball is set in motion.</summary>
+            /** This property is exposed to the Game API. */
             public float Delay {
                 get { return Controller ? Controller.Delay : 0f; }
                 set { if (Controller) Controller.Delay = value; }
             }
 
-            /// Used to check if the ball is in risk of getting stuck bouncing in a straight line (horizontally or vertically).
+            /// <summary>Checks if the ball is in risk of getting stuck bouncing in a straight line back and forth (horizontally or vertically).</summary>
+            /** This property is exposed to the Game API. */
             public bool IsStuck {
                 get { return Controller ? Controller.IsStuck : false; }
             }
 
-            /// Used to access/set the speed of the ball.
+            /// <summary>Access/set the speed of the ball.</summary>
+            /** This property is exposed to the Game API. */
             public float Speed {
                 get { return Controller ? Controller.Speed : 0f; }
                 set { if (Controller) Controller.Speed = value; }
             }
 
-            /// Used to access/set the starting position of the ball.
+            /// <summary>Access/set the starting position of the ball.</summary>
+            /** This property is exposed to the Game API. */
             public Vector2 StartingPosition {
                 get { return Controller ? Controller.StartingPosition : Vector2.zero; }
                 set { if (Controller) Controller.StartingPosition = value; }
@@ -45,30 +50,31 @@ namespace uLua {
             // Process Methods
             // Public
 
-            /// Adjusts the angle of motion of the ball by the specified value.
+            /// <summary>Adjusts the angle of motion of the ball by the specified value.</summary>
+            /** This method is exposed to the Game API.
             /** @param Degrees The adjustment value (in degrees) for the angle. */
             public void AdjustAngle(float Degrees) {
                 if (Controller) Controller.AdjustAngle(Degrees);
             }
 
-            /// Resets the position of the ball to its starting position and sets the ball in motion.
-            /** This method may be used in Lua but is also used in the Game class to reset the position of balls. */
+            /// <summary>Resets the position of the ball to its starting position and sets the ball in motion.</summary>
+            /** This method is exposed to the Game API. */
             public void Reset() {
                 if (Controller) Controller.Reset();
             }
 
             // Private
 
-            /// Initialises the controller reference on awake.
+            /// <summary>Initialises the BallController component reference on awake.</summary>
             private void Awake() {
                 Controller = GetComponent<BallController>();
             }
 
-            /// Called when a Ball object collides with any other object
+            /// <summary>Called when a Ball object collides with any other object.</summary>
             /** Invokes OnHit event for a Ball object.
              *  Also used to "nudge" the ball by a few degrees when it is in risk of getting stuck bouncing in a straight line. The "nudge" limited to +/-15 degrees. */
             private void OnCollisionEnter2D(Collision2D Other) {
-                Invoke("OnHit");
+                InvokeLua("OnHit");
 
                 if (IsStuck) AdjustAngle(Random.Range(-15f, 15f)); else AdjustAngle(0f);
             }

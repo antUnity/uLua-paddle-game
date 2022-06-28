@@ -93,42 +93,42 @@ $(document).ready(function(){initNavTree('classu_lua_1_1_paddle_game_1_1_paddle_
 </div><!--header-->
 <div class="contents">
 
-<p>Used to implement controls for paddle objects.  
+<p>Implements controls for paddle objects. 
  <a href="classu_lua_1_1_paddle_game_1_1_paddle_controller.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab84424160f50f330d8b2a1eeca0622a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle_controller.html#ab84424160f50f330d8b2a1eeca0622a1">Reset</a> ()</td></tr>
-<tr class="memdesc:ab84424160f50f330d8b2a1eeca0622a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the position of the paddle to its starting position.  <a href="classu_lua_1_1_paddle_game_1_1_paddle_controller.html#ab84424160f50f330d8b2a1eeca0622a1">More...</a><br /></td></tr>
+<tr class="memdesc:ab84424160f50f330d8b2a1eeca0622a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the position of the paddle to its starting position. <a href="classu_lua_1_1_paddle_game_1_1_paddle_controller.html#ab84424160f50f330d8b2a1eeca0622a1">More...</a><br /></td></tr>
 <tr class="separator:ab84424160f50f330d8b2a1eeca0622a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a600d04e5f3953323fa17649dfea47ea6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle_controller.html#a600d04e5f3953323fa17649dfea47ea6">UpdateContactPoint</a> (ContactPoint2D Contact)</td></tr>
-<tr class="memdesc:a600d04e5f3953323fa17649dfea47ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the position of the specified contact point relative to the center of the paddle.  <a href="classu_lua_1_1_paddle_game_1_1_paddle_controller.html#a600d04e5f3953323fa17649dfea47ea6">More...</a><br /></td></tr>
+<tr class="memdesc:a600d04e5f3953323fa17649dfea47ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the ContactPoint vector based on a detected collision. <a href="classu_lua_1_1_paddle_game_1_1_paddle_controller.html#a600d04e5f3953323fa17649dfea47ea6">More...</a><br /></td></tr>
 <tr class="separator:a600d04e5f3953323fa17649dfea47ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a37521646d25b164c3d237cf8cff2d10b"><td class="memItemLeft" align="right" valign="top"><a id="a37521646d25b164c3d237cf8cff2d10b" name="a37521646d25b164c3d237cf8cff2d10b"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>Speed</b> = 0f</td></tr>
-<tr class="memdesc:a37521646d25b164c3d237cf8cff2d10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Movement speed of the paddle object. <br /></td></tr>
+<tr class="memdesc:a37521646d25b164c3d237cf8cff2d10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Movement speed of the paddle object.<br /></td></tr>
 <tr class="separator:a37521646d25b164c3d237cf8cff2d10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2bbb2c96b77849ec782101ac68f0ee1"><td class="memItemLeft" align="right" valign="top"><a id="aa2bbb2c96b77849ec782101ac68f0ee1" name="aa2bbb2c96b77849ec782101ac68f0ee1"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>StartingPosition</b> = Vector2.zero</td></tr>
-<tr class="memdesc:aa2bbb2c96b77849ec782101ac68f0ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting position of the paddle object. <br /></td></tr>
+<tr class="memdesc:aa2bbb2c96b77849ec782101ac68f0ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting position of the paddle object.<br /></td></tr>
 <tr class="separator:aa2bbb2c96b77849ec782101ac68f0ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3117483e881dd166a5d4b4f4e3b141"><td class="memItemLeft" align="right" valign="top"><a id="a9d3117483e881dd166a5d4b4f4e3b141" name="a9d3117483e881dd166a5d4b4f4e3b141"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>ContactPoint</b> = Vector2.zero</td></tr>
-<tr class="memdesc:a9d3117483e881dd166a5d4b4f4e3b141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Latest contact point of the ball relative to the center of the paddle object. <br /></td></tr>
+<tr class="memdesc:a9d3117483e881dd166a5d4b4f4e3b141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last known contact point of the ball relative to the center of the paddle object.<br /></td></tr>
 <tr class="separator:a9d3117483e881dd166a5d4b4f4e3b141"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a3a56c5bb4e4e2e20d14970b2f3ec9c93"><td class="memItemLeft" align="right" valign="top"><a id="a3a56c5bb4e4e2e20d14970b2f3ec9c93" name="a3a56c5bb4e4e2e20d14970b2f3ec9c93"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>Scale</b><code> [get, set]</code></td></tr>
-<tr class="memdesc:a3a56c5bb4e4e2e20d14970b2f3ec9c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to access/set the scale of the <a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class used to expose paddle objects to Lua.">Paddle</a> object. <br /></td></tr>
+<tr class="memdesc:a3a56c5bb4e4e2e20d14970b2f3ec9c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access/set the scale of the <a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class which exposes paddle objects to the Game API.">Paddle</a> object.<br /></td></tr>
 <tr class="separator:a3a56c5bb4e4e2e20d14970b2f3ec9c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Used to implement controls for paddle objects. </p>
+<div class="textblock"><p >Implements controls for paddle objects.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab84424160f50f330d8b2a1eeca0622a1" name="ab84424160f50f330d8b2a1eeca0622a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab84424160f50f330d8b2a1eeca0622a1">&#9670;&nbsp;</a></span>Reset()</h2>
@@ -153,8 +153,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Scale</b><code> [get
 </table>
 </div><div class="memdoc">
 
-<p>Resets the position of the paddle to its starting position. </p>
-<p >This method is called by the <a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class used to expose paddle objects to Lua.">Paddle</a> wrapper. </p>
+<p>Resets the position of the paddle to its starting position.</p>
+<p >This method is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API by the <a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class which exposes paddle objects to the Game API.">uLua.PaddleGame.Paddle</a> class. </p>
 
 </div>
 </div>
@@ -182,7 +182,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>Scale</b><code> [get
 </table>
 </div><div class="memdoc">
 
-<p>Calculates the position of the specified contact point relative to the center of the paddle. </p>
+<p>Updates the ContactPoint vector based on a detected collision.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Contact</td><td>The ContactPoint2D of the collision with the ball object. </td></tr>

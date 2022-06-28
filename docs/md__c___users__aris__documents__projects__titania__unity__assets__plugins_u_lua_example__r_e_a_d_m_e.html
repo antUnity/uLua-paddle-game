@@ -110,7 +110,7 @@ Documentation</h1>
 Usage Tutorial</h1>
 <p ><em><b>Note: It is recommended to read the <a href="https://antunity.github.io/uLua-docs">uLua Usage Tutorial</a> in the full documentation of <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> before reading this document.</b></em></p>
 <p >The basic behaviour and game logic of this game are implemented in Unity Engine. Specifically:</p><ul>
-<li>Controller scripts for <a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class used to expose paddle objects to Lua.">uLua.PaddleGame.Paddle</a> and <a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html" title="Wrapper class used to expose ball objects to Lua.">uLua.PaddleGame.Ball</a> objects.</li>
+<li>Controller scripts for <a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class which exposes paddle objects to the Game API.">uLua.PaddleGame.Paddle</a> and <a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html" title="Wrapper class which exposes ball objects to the Game API.">uLua.PaddleGame.Ball</a> objects.</li>
 <li>Invoking of game events and object callback functions.</li>
 <li>Collision detection logic for all objects.</li>
 </ul>
@@ -128,74 +128,206 @@ Usage Tutorial</h1>
 </ul>
 <p >All ball, brick, and paddle objects are also exposed to the Game API, however, their names are based on the application runtime, unless specified otherwise in the corresponding command:</p>
 <div class="fragment"><div class="line">Game:AddBall(0, 0, 5, 0.5, &quot;BallName&quot;);</div>
-</div><!-- fragment --><p >Omitting the last parameter in this method will auto-generate a name of the object. The following are examples of auto-generated names:</p>
-<div class="fragment"><div class="line">Each Lua object contains various methods as defined in their corresponding Unity scripts. For a full list of the members of all object types,</div>
-<div class="line">refer to the relevant source code documentation. Remember that all public members of the following classes are accessible in the Game API.</div>
-<div class="line">- uLua.PaddleGame.Ball</div>
-<div class="line">- uLua.PaddleGame.Brick</div>
-<div class="line">- uLua.PaddleGame.Paddle</div>
-<div class="line">- uLua.PaddleGame.Game</div>
-<div class="line">- uLua.PaddleGame.Settings</div>
-<div class="line">- uLua.PaddleGame.UIText</div>
+</div><!-- fragment --><p >Omitting the last parameter in this method will auto-generate a name of the object. The following is an example of an auto-generated name:</p>
+<div class="fragment"><div class="line">Ball12345</div>
+</div><!-- fragment --><p >Each Lua object contains various methods as defined in their corresponding Unity scripts. For a full list of the members of all object types, refer to the relevant source code documentation. Remember that all public members of the following classes are accessible in the Game API.</p><ul>
+<li><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html" title="Wrapper class which exposes ball objects to the Game API.">uLua.PaddleGame.Ball</a></li>
+<li><a class="el" href="classu_lua_1_1_paddle_game_1_1_brick.html" title="Wrapper class which exposes brick objects to the Game API.">uLua.PaddleGame.Brick</a></li>
+<li><a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class which exposes paddle objects to the Game API.">uLua.PaddleGame.Paddle</a></li>
+<li><a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">uLua.PaddleGame.Game</a></li>
+<li><a class="el" href="classu_lua_1_1_paddle_game_1_1_settings.html" title="Class which keeps track of various game settings.">uLua.PaddleGame.Settings</a></li>
+<li><a class="el" href="classu_lua_1_1_paddle_game_1_1_u_i_text.html" title="Wrapper class which exposes a UI Text object to the Game API.">uLua.PaddleGame.UIText</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md6"></a>
+1.2. Events and Callback Functions</h3>
+<p >The following events are invoked during the game and may be handled in Lua:</p><ul>
+<li><b>BoundaryHit</b>: Invoked when a ball hits the bottom screen boundary.</li>
+<li><b>BrickDestroyed</b>: Invoked when a brick is destroyed. Passes one argument, which is the brick object that was destroyed.</li>
+<li><b>BrickHit</b>: Invoked when a brick is hit. Passes one argument, which is the brick object that was hit.</li>
+<li><b>SceneLoaded</b>: Invoked when the scene is loaded.</li>
+<li><b>UIUpdate</b>: Invoked when the game level, player lives, or player score are altered.</li>
+</ul>
+<p >The following object callback functions are invoked during the game and may be handled in Lua:</p><ul>
+<li><b>Ball:OnHit()</b>: Called when a ball hits an object. To handle in the API, the ball name must be known.</li>
+<li><b>Brick:OnHit()</b>: Called when a brick hits an object. To handle in the API, the brick name must be known.</li>
+<li><b>Paddle:OnHit()</b>: Called when a paddle hits an object. To handle in the API, the paddle name must be known.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7"></a>
+2. Modding the Game</h2>
+<p >The Lua script which is executed by default for this game is listed at the end of this section. You may mod the game by extending this script (adding custom Lua scripts at the end) or replacing the original script entirely.</p>
+<p >To do that, you must place your new Lua scripts in the appropriate external directory. The external directory is set to Unity's <code>Application.persistentDataPath</code> by default. For more information for different platforms, check the <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html">relevant Unity documentation</a>.</p>
+<p >For this project, and for Windows specifically, the directory for the scripts would be the following:</p>
+<div class="fragment"><div class="line">C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\</div>
+</div><!-- fragment --><p >In order to replace the original scene script you must create a file named <em><b>PaddleGame.lua</b></em> in this directory. I recommend copying the script below to start making small tweaks to familiarize yourself with the game API.</p>
+<p >In order to extend the original scene script you may add any lua scripts in the "UserScripts" folder within the external directory. Again, for Windows that would be the following:</p>
+<div class="fragment"><div class="line">C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\UserScripts\</div>
+</div><!-- fragment --><p ><em><b>PaddleGame.lua</b></em> </p><div class="fragment"><div class="line">--[[ June 2022                                                                                                          ]]</div>
+<div class="line">--[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game.                       ]]</div>
+<div class="line">--[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.                            ]]</div>
 <div class="line"> </div>
-<div class="line">#### 1.2. Events and Callback Functions</div>
+<div class="line">math.randomseed(os.time());                 -- Used to generate random seed.</div>
 <div class="line"> </div>
-<div class="line">The following events are invoked during the game and may be handled in Lua:</div>
-<div class="line">- **BoundaryHit**: Invoked when a ball hits the bottom screen boundary.</div>
-<div class="line">- **BrickDestroyed**: Invoked when a brick is destroyed. Passes one argument, which is the brick object that was destroyed.</div>
-<div class="line">- **BrickHit**: Invoked when a brick is hit. Passes one argument, which is the brick object that was hit.</div>
-<div class="line">- **SceneLoaded**: Invoked when the scene is loaded.</div>
-<div class="line">- **UIUpdate**: Invoked when the game level, player lives, or player score are altered.</div>
+<div class="line">local BrickColors = {                       -- Brick color table. Used to color blocks by different health values.</div>
+<div class="line">    {1.0, 0.0, 0.0},                        -- (1) Red</div>
+<div class="line">    {1.0, 0.5, 0.0},                        -- (2) Orange</div>
+<div class="line">    {1.0, 1.0, 0.0},                        -- (3) Yellow</div>
+<div class="line">    {0.5, 1.0, 0.0},                        -- (4) Lawn Green</div>
+<div class="line">    {0.0, 1.0, 0.0},                        -- (5) Green</div>
+<div class="line">    {0.0, 1.0, 0.5},                        -- (6) Spring Green</div>
+<div class="line">    {0.0, 1.0, 1.0},                        -- (7) Aqua</div>
+<div class="line">    {0.0, 0.5, 1.0},                        -- (8) Dodger Blue</div>
+<div class="line">    {0.0, 0.0, 1.0},                        -- (9) Blue</div>
+<div class="line">    {1.0, 0.0, 1.0},                        -- (10) Magenta</div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">The following object callback functions are invoked during the game and may be handled in Lua:</div>
-<div class="line">- **Ball:OnHit()**: Called when a ball hits an object. To handle in the API, the ball name must be known.</div>
-<div class="line">- **Brick:OnHit()**:  Called when a brick hits an object. To handle in the API, the brick name must be known.</div>
-<div class="line">- **Paddle:OnHit()**: Called when a paddle hits an object. To handle in the API, the paddle name must be known.</div>
+<div class="line">--[[ Methods                                                                                                            ]]</div>
+<div class="line">--[[ The following methods are fully implemented in Lua and have no equivalent in Unity.                                ]]</div>
+<div class="line">--[[ They are defined as members of the &#39;Settings&#39; and &#39;Game&#39; objects for decorative purposes.                          ]]</div>
 <div class="line"> </div>
-<div class="line">### 2. Modding the Game</div>
+<div class="line">-- Used to increment the game level after clearing the scene. This function ends by starting a new level.</div>
+<div class="line">-- For each level increment, the game is sped up. Even levels award a bonus life.</div>
+<div class="line">function Game:OnLevelFinished()</div>
+<div class="line">    -- Increment level</div>
+<div class="line">    if (Settings.Level%2 == 0) then Settings:AddLife(); end -- Add life only on even levels.</div>
+<div class="line">    Settings:AddLevel();</div>
+<div class="line">    </div>
+<div class="line">    -- Speed Up Game</div>
+<div class="line">    if (Settings.Level &lt;= Settings.MaximumLevel) then </div>
+<div class="line">        Game:SpeedUp();</div>
+<div class="line">    else</div>
+<div class="line">        Settings.Level = Settings.MaximumLevel;</div>
+<div class="line">    end</div>
 <div class="line"> </div>
-<div class="line">The Lua script which is executed by default for this game is listed at the end of this section.</div>
-<div class="line">You may mod the game by extending this script (adding custom Lua scripts at the end) or replacing the original script entirely.</div>
+<div class="line">    -- Start new level</div>
+<div class="line">    self:Start();</div>
+<div class="line">end</div>
 <div class="line"> </div>
-<div class="line">To do that, you must place your new Lua scripts in the appropriate external directory.  The external directory is set to Unity&#39;s ```Application.persistentDataPath``` by default.</div>
-<div class="line">For more information for different platforms, check the [relevant Unity documentation](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html).</div>
+<div class="line">-- Used to reset the game state when all lives are lost.</div>
+<div class="line">function Settings:Reset()</div>
+<div class="line">    Game:SlowDown();</div>
+<div class="line">    </div>
+<div class="line">    self.Level = 1;                         -- Used to keep track of the current level.</div>
+<div class="line">    self.Lives = 3;                         -- Used to keep track of remaining lives.</div>
+<div class="line">    self.Score = 0;                         -- Used to keep track of player score.</div>
+<div class="line">    self.MaximumLevel = 10;                 -- Used to indicate the maximum game level.</div>
+<div class="line">    self.Delay = 0.5;                       -- Delay before the ball is set in motion (in seconds).</div>
+<div class="line">    </div>
+<div class="line">    self.SpeedIncrement = 0.125;            -- Ball/Paddle speed increment per level.</div>
+<div class="line">    self.ColorMultiplier = 0.75;            -- Multiplier to adjust the brick color intensity.</div>
+<div class="line">    </div>
+<div class="line">    Game:OnUIUpdate();                      -- Force UI Update.</div>
+<div class="line">end</div>
 <div class="line"> </div>
-<div class="line">For this project, and for Windows specifically, the directory for the scripts would be the following:</div>
-</div><!-- fragment --><p> C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\ </p><div class="fragment"><div class="line">In order to replace the original scene script you must create a file named ***PaddleGame.lua*** in this directory. I recommend copying the script below to start making small tweaks to familiarize yourself with the game API.</div>
+<div class="line">-- Used to generate a random arrangement of bricks.</div>
+<div class="line">-- The health for each brick is assigned randomly to a value between 1 and the current level.</div>
+<div class="line">-- The color for each brick is assigned based on its Health and by using the BrickColors table.</div>
+<div class="line">function Game:Start()</div>
+<div class="line">    -- Clear up scene</div>
+<div class="line">    self:Clear();</div>
+<div class="line">    </div>
+<div class="line">    -- Set up Paddle and Ball</div>
+<div class="line">    local SpeedIncrement = Settings.TotalSpeedIncrement;</div>
+<div class="line">    self:AddBall(0, -1.75, 4+SpeedIncrement, Settings.Delay);</div>
+<div class="line">    self:AddPaddle(0, -2.25, 6+SpeedIncrement, SpeedIncrement+1);</div>
+<div class="line">    </div>
+<div class="line">    -- Generate random level    </div>
+<div class="line">    local Columns = math.random(Settings.Level/2+1, Settings.Level+2);</div>
+<div class="line">    local Rows = Settings.Level+2;</div>
+<div class="line">    </div>
+<div class="line">    for j=Rows/2-1,-Rows/2+1,-1 do</div>
+<div class="line">        local Increment = 1;</div>
+<div class="line">        Columns = Columns -1;</div>
+<div class="line">        if (Columns &lt; 1) then Increment = -1; end</div>
+<div class="line">        for i=-Columns/2,Columns/2,Increment do</div>
+<div class="line">            local Health = math.random(1, Settings.Level/2+j);</div>
+<div class="line">            if (Health &lt; 1) then Health = 1; elseif (Health &gt; 10) then Health = 10; end</div>
+<div class="line">            local Brick = Game:AddBrick(i*0.6125, j*0.33+1.0, Health);</div>
+<div class="line">            Brick.Color = Color.__new(BrickColors[Health][1]*Settings.ColorMultiplier, BrickColors[Health][2]*Settings.ColorMultiplier, BrickColors[Health][3]*Settings.ColorMultiplier);</div>
+<div class="line">        end</div>
+<div class="line">    end</div>
+<div class="line">end</div>
 <div class="line"> </div>
-<div class="line">In order to extend the original scene script you may add any lua scripts in the &quot;UserScripts&quot; folder within the external directory. Again, for Windows that would be the following:</div>
-</div><!-- fragment --><p> C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\UserScripts\ </p><div class="fragment"><div class="line">***PaddleGame.lua***</div>
-</div><!-- fragment --><p> &ndash;[[ June 2022 ]] &ndash;[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game. ]] &ndash;[[ It is meant to demonstrate the flexibility of the <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> API framework as a modding tool. ]]</p>
-<p >math.randomseed(os.time()); &ndash; Used to generate random seed.</p>
-<p >local BrickColors = { &ndash; Brick color table. Used to color blocks by different health values. {1.0, 0.0, 0.0}, &ndash; (1) Red {1.0, 0.5, 0.0}, &ndash; (2) Orange {1.0, 1.0, 0.0}, &ndash; (3) Yellow {0.5, 1.0, 0.0}, &ndash; (4) Lawn Green {0.0, 1.0, 0.0}, &ndash; (5) Green {0.0, 1.0, 0.5}, &ndash; (6) Spring Green {0.0, 1.0, 1.0}, &ndash; (7) Aqua {0.0, 0.5, 1.0}, &ndash; (8) Dodger Blue {0.0, 0.0, 1.0}, &ndash; (9) Blue {1.0, 0.0, 1.0}, &ndash; (10) Magenta }</p>
-<p >&ndash;[[ Methods ]] &ndash;[[ The following methods are fully implemented in Lua and have no equivalent in Unity. ]] &ndash;[[ They are defined as members of the 'Settings' and 'Game' objects for decorative purposes. ]]</p>
-<p >&ndash; Used to increment the game level after clearing the scene. This function ends by starting a new level. &ndash; For each level increment, the game is sped up. Even levels award a bonus life. function Game:OnLevelFinished() &ndash; Increment level if (Settings.Level%2 == 0) then Settings:AddLife(); end &ndash; Add life only on even levels. Settings:AddLevel();</p>
-<p >&ndash; Speed Up Game if (Settings.Level &lt;= Settings.MaximumLevel) then Game:SpeedUp(); else Settings.Level = Settings.MaximumLevel; end</p>
-<p >&ndash; Start new level self:Start(); end</p>
-<p >&ndash; Used to reset the game state when all lives are lost. function Settings:Reset() Game:SlowDown();</p>
-<p >self.Level = 1; &ndash; Used to keep track of the current level. self.Lives = 3; &ndash; Used to keep track of remaining lives. self.Score = 0; &ndash; Used to keep track of player score. self.MaximumLevel = 10; &ndash; Used to indicate the maximum game level. self.Delay = 0.5; &ndash; Delay before the ball is set in motion (in seconds).</p>
-<p >self.SpeedIncrement = 0.125; &ndash; Ball/Paddle speed increment per level. self.ColorMultiplier = 0.75; &ndash; Multiplier to adjust the brick color intensity.</p>
-<p >Game:OnUIUpdate(); &ndash; Force UI Update. end</p>
-<p >&ndash; Used to generate a random arrangement of bricks. &ndash; The health for each brick is assigned randomly to a value between 1 and the current level. &ndash; The color for each brick is assigned based on its Health and by using the BrickColors table. function Game:Start() &ndash; Clear up scene self:Clear();</p>
-<p >&ndash; Set up Paddle and Ball local SpeedIncrement = Settings.TotalSpeedIncrement; self:AddBall(0, -1.75, 4+SpeedIncrement, Settings.Delay); self:AddPaddle(0, -2.25, 6+SpeedIncrement, SpeedIncrement+1);</p>
-<p >&ndash; Generate random level <br  />
- local Columns = math.random(Settings.Level/2+1, Settings.Level+2); local Rows = Settings.Level+2;</p>
-<p >for j=Rows/2-1,-Rows/2+1,-1 do local Increment = 1; Columns = Columns -1; if (Columns &lt; 1) then Increment = -1; end for i=-Columns/2,Columns/2,Increment do local Health = math.random(1, Settings.Level/2+j); if (Health &lt; 1) then Health = 1; elseif (Health &gt; 10) then Health = 10; end local Brick = Game:AddBrick(i*0.6125, j*0.33+1.0, Health); Brick.Color = Color.__new(BrickColors[Health][1]*Settings.ColorMultiplier, BrickColors[Health][2]*Settings.ColorMultiplier, BrickColors[Health][3]*Settings.ColorMultiplier); end end end</p>
-<p >&ndash;[[ Event Handlers ]] &ndash;[[ The following event handlers are fully implemented in Lua. They are defined as members of the 'Game' object for ]] &ndash;[[ decorative purposes. Events are registered within the Unity scene and then invoked in Unity when appropriate. ]]</p>
-<p >&ndash; Called when the ball hits the bottom boundary. &ndash; Decreases lives by one and resets the game state when the last ball hits the bottom of the screen. function Game:OnBoundaryHit(Ball) if (self.NumBalls &gt;= 2) then &ndash; Remove extra balls self:RemoveBall(Ball); else Settings:AddLife(-1);</p>
-<p >&ndash; Reset game state if all lives were used if (Settings.Lives &lt; 0) then self:OnSceneLoaded(); else &ndash; Reset Paddle/Ball positions self:ResetPositions(); end end end</p>
-<p >&ndash; Called when a brick is destroyed. Chance to generate an extra ball. &ndash; Removes brick from the scene and increments player score. Restarts level if all bricks are destroyed. function Game:OnBrickDestroyed(Brick) &ndash; Update score Settings:AddScore(10*Settings.Level);</p>
-<p >&ndash; Extra ball chance local Chance = Brick.MaxHealth/Settings.MaximumLevel;</p>
-<p >local Roll = math.random(0, 100); if (Roll/100 &lt;= Chance) then self:AddBall(0, -1.75, 4+Settings.TotalSpeedIncrement, Settings.Delay); end</p>
-<p >&ndash; Remove Brick self:RemoveBrick(Brick);</p>
-<p >&ndash; Check if the level is finished if (self.NumBricks == 0) then self:OnLevelFinished(); end end</p>
-<p >&ndash; Called when a brick is hit. &ndash; Damages the block and updates its color. Also increments player score. function Game:OnBrickHit(Brick) &ndash; Update score Settings:AddScore(10*Settings.Level);</p>
-<p >&ndash; Change brick color local Health = Brick.Health-1; if (Health &gt; 0) then Brick.Color = Color.__new(BrickColors[Health][1]*Settings.ColorMultiplier, BrickColors[Health][2]*Settings.ColorMultiplier, BrickColors[Health][3]*Settings.ColorMultiplier); end</p>
-<p >Brick:Damage(1); end</p>
-<p >&ndash; Resets settings and starts the game. function Game:OnSceneLoaded() Settings:Reset(); self:Start(); end</p>
-<p >&ndash; Updates all UIText objects. function Game:OnUIUpdate() LevelText.Message = "LEVEL: " .. Settings.Level; LivesText.Message = "LIVES: " .. Settings.Lives; ScoreText.Message = "SCORE: " .. Settings.Score; end</p>
-<p >&ndash; The following commands register event handlers for different events invoked within Unity. RegisterEventHandler("BoundaryHit", "OnBoundaryHit", Game); &ndash; Callback for BoundaryHit event. RegisterEventHandler("BrickDestroyed", "OnBrickDestroyed", Game); &ndash; Callback for BrickDestroyed event. RegisterEventHandler("BrickHit", "OnBrickHit", Game); &ndash; Callback for BrickHit event. RegisterEventHandler("SceneLoaded", "OnSceneLoaded", Game); &ndash; Callback for SceneLoad event. RegisterEventHandler("UIUpdate", "OnUIUpdate", Game); &ndash; Callback for UIUpdate event. ``` </p>
-</div></div><!-- contents -->
+<div class="line">--[[ Event Handlers                                                                                                     ]]</div>
+<div class="line">--[[ The following event handlers are fully implemented in Lua. They are defined as members of the &#39;Game&#39; object for    ]]</div>
+<div class="line">--[[ decorative purposes. Events are registered within the Unity scene and then invoked in Unity when appropriate.      ]]</div>
+<div class="line"> </div>
+<div class="line">-- Called when the ball hits the bottom boundary.</div>
+<div class="line">-- Decreases lives by one and resets the game state when the last ball hits the bottom of the screen.</div>
+<div class="line">function Game:OnBoundaryHit(Ball)</div>
+<div class="line">    if (self.NumBalls &gt;= 2) then</div>
+<div class="line">    -- Remove extra balls </div>
+<div class="line">        self:RemoveBall(Ball);</div>
+<div class="line">    else</div>
+<div class="line">        Settings:AddLife(-1);</div>
+<div class="line">        </div>
+<div class="line">        -- Reset game state if all lives were used</div>
+<div class="line">        if (Settings.Lives &lt; 0) then</div>
+<div class="line">            self:OnSceneLoaded();</div>
+<div class="line">        else</div>
+<div class="line">        -- Reset Paddle/Ball positions</div>
+<div class="line">            self:ResetPositions();</div>
+<div class="line">        end</div>
+<div class="line">    end</div>
+<div class="line">end</div>
+<div class="line"> </div>
+<div class="line">-- Called when a brick is destroyed. Chance to generate an extra ball.</div>
+<div class="line">-- Removes brick from the scene and increments player score. Restarts level if all bricks are destroyed.</div>
+<div class="line">function Game:OnBrickDestroyed(Brick)</div>
+<div class="line">    -- Update score</div>
+<div class="line">    Settings:AddScore(10*Settings.Level);</div>
+<div class="line">    </div>
+<div class="line">    -- Extra ball chance</div>
+<div class="line">    local Chance = Brick.MaxHealth/Settings.MaximumLevel;</div>
+<div class="line">    </div>
+<div class="line">    local Roll = math.random(0, 100);</div>
+<div class="line">    if (Roll/100 &lt;= Chance) then</div>
+<div class="line">        self:AddBall(0, -1.75, 4+Settings.TotalSpeedIncrement, Settings.Delay);</div>
+<div class="line">    end</div>
+<div class="line"> </div>
+<div class="line">    -- Remove Brick</div>
+<div class="line">    self:RemoveBrick(Brick);</div>
+<div class="line">    </div>
+<div class="line">    -- Check if the level is finished</div>
+<div class="line">    if (self.NumBricks == 0) then</div>
+<div class="line">        self:OnLevelFinished();</div>
+<div class="line">    end</div>
+<div class="line">end</div>
+<div class="line"> </div>
+<div class="line">-- Called when a brick is hit.</div>
+<div class="line">-- Damages the block and updates its color. Also increments player score.</div>
+<div class="line">function Game:OnBrickHit(Brick)</div>
+<div class="line">    -- Update score</div>
+<div class="line">    Settings:AddScore(10*Settings.Level);</div>
+<div class="line"> </div>
+<div class="line">    -- Change brick color</div>
+<div class="line">    local Health = Brick.Health-1;</div>
+<div class="line">    if (Health &gt; 0) then </div>
+<div class="line">        Brick.Color = Color.__new(BrickColors[Health][1]*Settings.ColorMultiplier, BrickColors[Health][2]*Settings.ColorMultiplier, BrickColors[Health][3]*Settings.ColorMultiplier);</div>
+<div class="line">    end</div>
+<div class="line"> </div>
+<div class="line">    Brick:Damage(1);</div>
+<div class="line">end</div>
+<div class="line"> </div>
+<div class="line">-- Resets settings and starts the game.</div>
+<div class="line">function Game:OnSceneLoaded()</div>
+<div class="line">    Settings:Reset();</div>
+<div class="line">    self:Start();</div>
+<div class="line">end</div>
+<div class="line"> </div>
+<div class="line">-- Updates all UIText objects.</div>
+<div class="line">function Game:OnUIUpdate()</div>
+<div class="line">    LevelText.Message = &quot;LEVEL: &quot; .. Settings.Level;</div>
+<div class="line">    LivesText.Message = &quot;LIVES: &quot; .. Settings.Lives;</div>
+<div class="line">    ScoreText.Message = &quot;SCORE: &quot; .. Settings.Score;</div>
+<div class="line">end</div>
+<div class="line"> </div>
+<div class="line">-- The following commands register event handlers for different events invoked within Unity.</div>
+<div class="line">RegisterEventHandler(&quot;BoundaryHit&quot;, &quot;OnBoundaryHit&quot;, Game);         -- Callback for BoundaryHit event.</div>
+<div class="line">RegisterEventHandler(&quot;BrickDestroyed&quot;, &quot;OnBrickDestroyed&quot;, Game);   -- Callback for BrickDestroyed event.</div>
+<div class="line">RegisterEventHandler(&quot;BrickHit&quot;, &quot;OnBrickHit&quot;, Game);               -- Callback for BrickHit event.</div>
+<div class="line">RegisterEventHandler(&quot;SceneLoaded&quot;, &quot;OnSceneLoaded&quot;, Game);         -- Callback for SceneLoad event.</div>
+<div class="line">RegisterEventHandler(&quot;UIUpdate&quot;, &quot;OnUIUpdate&quot;, Game);               -- Callback for UIUpdate event.</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

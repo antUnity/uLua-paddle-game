@@ -2,18 +2,23 @@ using UnityEngine;
 
 namespace uLua {
     namespace PaddleGame {
-        /// Wrapper class used to expose brick objects to Lua.
-        /** Inherits from LuaMonoBehaviour. All public methods and members of this class are exposed to Lua. */
+        /// <summary>Wrapper class which exposes brick objects to the Game API.</summary>
+        /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Brick : ExposedMonoBehaviour<Brick> {
             // Members
-            private SpriteRenderer SpriteRenderer = null;       //!< Reference to the SpriteRenderer component of the brick object.
-            public int Health = 1;                              //!< Current health value of the brick.
-            public int MaxHealth = 1;                           //!< Maximum health value of the brick.
+            /** <summary>Reference to the SpriteRenderer component of the brick object.</summary> */
+            private SpriteRenderer SpriteRenderer = null;       //!< 
+
+            /** <summary>Current health value of the brick.</summary> */
+            public int Health = 1;
+
+            /** <summary>Maximum health value of the brick.</summary> */
+            public int MaxHealth = 1;
 
             // Access Methods
 
-            /// Static class constructor.
-            /** Registers the Color type to Lua. */
+            /// <summary>Static class constructor. Registers the Color type to Lua.</summary>
+            /** This static constructor is only executed once. */
             static Brick() {
                 API.RegisterType<Color>();
                 Lua.Set("Color", new Color());
@@ -21,7 +26,8 @@ namespace uLua {
 
             // Public
 
-            /// Used to access/set the Color of the brick.
+            /// <summary>Access/set the Color of the brick.</summary>
+            /** This property is exposed to the Game API. */
             public Color Color {
                 get { return SpriteRenderer ? SpriteRenderer.color : Color.white; }
                 set { if (SpriteRenderer) SpriteRenderer.color = value; }
@@ -30,8 +36,8 @@ namespace uLua {
             // Process Methods
             // Public
 
-            /// Used to damage the brick and handle object destruction if its health is depleted.
-            /** Invokes the BrickDestroyed event and destroys the game object if necessary. */
+            /// <summary>Damages the brick and handles object destruction if its health is depleted.</summary>
+            /** Invokes the ```BrickDestroyed``` event and destroys the game object if necessary. */
             public void Damage(int Damage) {
                 Health -= Damage;
 
@@ -44,14 +50,15 @@ namespace uLua {
 
             // Private
 
+            /// <summary>Initialises the SpriteRenderer component reference on awake.</summary>
             private void Awake() {
                 SpriteRenderer = GetComponent<SpriteRenderer>();
             }
 
-            /// Invokes the BrickHit event.
+            /// <summary>Invokes the BrickHit event.</summary>
             private void OnCollisionEnter2D(Collision2D Other) {
                 API.Invoke("BrickHit", this);
-                Invoke("OnHit");
+                InvokeLua("OnHit");
             }
         }
     }
