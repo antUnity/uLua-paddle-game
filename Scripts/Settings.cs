@@ -34,8 +34,8 @@ namespace uLua {
             /// <summary>Public constructor.</summary>
             /** @param Name Sets the name of the object exposed to Lua.
              *  @param Context Sets the context of the object exposed to Lua.
-                @param AutoExpose (Optional) Enables/disables the automatic exposure of this object to Lua. */
-            public Settings(string Name, LuaMonoBehaviour Context = null, bool AutoExpose = true): base(Name, Context, AutoExpose) {
+                @param ExposeOnInit (Optional) Enables/disables the automatic exposure of this object to Lua. */
+            public Settings(string Name, LuaMonoBehaviour Context = null, bool ExposeOnInit = true): base(Name, Context, ExposeOnInit) {
             }
 
             /// <summary>The total speed increment based on the current level.</summary>
