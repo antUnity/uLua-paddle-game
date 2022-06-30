@@ -65,7 +65,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md_main.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -87,28 +87,28 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title"><a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> Paddle Game </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_C__Users_Aris_Documents_Projects_Titania_uTitania_Assets_Plugins_uLua_example_README"></a> In this project I have developed an API for a basic paddle game to demonstrate the flexibility of the <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> API framework as a modding tool.</p>
+<div class="textblock"><p >In this project I have developed an API for a basic paddle game to demonstrate the flexibility of the <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> API framework as a modding tool.</p>
 <p ><a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> is a Game API framework for Unity. It aims to streamline the development of a Game API in Lua for your Unity Project.</p>
-<p ><a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> wraps around MoonSharp and provides an object oriented framework for API development in Lua. It works by setting up an application-wide Lua context and exposing game objects to it. Objects exposed to Lua can then be accessed in Lua scripts to implement game behaviour. In addition, user-defined Lua scripts may be executed at runtime to allow modding of your project.</p>
+<p ><a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> wraps around MoonSharp and provides an object oriented framework for API development in Lua. It works by setting up an application-wide Lua context and exposing game objects to it. Objects exposed to Lua can then be accessed in Lua scripts to implement game behaviour in your project. User-defined Lua scripts may be executed at runtime to allow modding of your project.</p>
 <p ><a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> implements the following features:</p><ul>
 <li>Script execution framework which allows Lua scripts to be executed from the Resources folder or an external directory.</li>
-<li>Event handling system which allows you to invoke events in C# and handle them in Lua.</li>
-<li>Base classes which expose your game objects and data structures to Lua in order to develop your Game API.</li>
+<li>Event handling system which allows you to invoke events from C# and handle them in Lua.</li>
+<li>Base classes which streamline exposing your game objects and data structures to Lua in order to develop your Game API.</li>
 <li>Callback function system for your Game API objects.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Dependencies</h1>
 <ul>
 <li><a href="https://assetstore.unity.com/packages/tools/moonsharp-33776">MoonSharp for Unity</a></li>
-<li><a href="https://bit.ly/uLuaAsset">uLua for Unity</a></li>
+<li><a href="https://assetstore.unity.com/packages/slug/226043">uLua for Unity</a></li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Documentation</h1>
-<p >This document is accompanied by source code documentation, which is found on the <a href="https://bit.ly/PaddleDemoDocs">GitHub pages</a> of the project's repository. For any further questions do not hesitate to contact <a href="#" onclick="location.href='mai'+'lto:'+'sup'+'po'+'rt@'+'an'+'tso'+'ft'+'war'+'e.'+'co.'+'uk'; return false;">suppo<span class="obfuscator">.nosp@m.</span>rt@a<span class="obfuscator">.nosp@m.</span>ntsof<span class="obfuscator">.nosp@m.</span>twar<span class="obfuscator">.nosp@m.</span>e.co.<span class="obfuscator">.nosp@m.</span>uk</a>.</p>
-<p >This project is the result of many hours of hard work. Please support me by starring this project on GitHub. If you purchased <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a>, please leave a review on the asset store! Follow my <a href="https://twitter.com/_ANTSoftware" title="@_ANTSoftware">Twitter</a>!</p>
+<p >This document is accompanied by source code documentation, which is found on the <a href="https://antunity.github.io/uLua-paddle-game/">GitHub pages</a> of this repository. For any further questions do not hesitate to contact <a href="#" onclick="location.href='mai'+'lto:'+'sup'+'po'+'rt@'+'an'+'tso'+'ft'+'war'+'e.'+'co.'+'uk'; return false;">suppo<span class="obfuscator">.nosp@m.</span>rt@a<span class="obfuscator">.nosp@m.</span>ntsof<span class="obfuscator">.nosp@m.</span>twar<span class="obfuscator">.nosp@m.</span>e.co.<span class="obfuscator">.nosp@m.</span>uk</a>.</p>
+<p >Working on this project and documentation has taken many hours. Please support me by starring this project on GitHub. If you purchased <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a>, please leave a review on the asset store! Follow my <a href="https://twitter.com/_ANTSoftware" title="@_ANTSoftware">Twitter</a>!</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Usage Tutorial</h1>
-<p ><em><b>Note: It is recommended to read the <a href="https://bit.ly/uLuaDocs">uLua Usage Tutorial</a> in the full documentation of <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> before reading this document.</b></em></p>
+<p ><em><b>Note: It is recommended to read the <a href="https://antunity.github.io/uLua-docs">uLua Usage Tutorial</a> in the full documentation of <a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> before reading this document.</b></em></p>
 <p >The basic behaviour and game logic of this game are implemented in Unity Engine. Specifically:</p><ul>
 <li>Controller scripts for <a class="el" href="classu_lua_1_1_paddle_game_1_1_paddle.html" title="Wrapper class which exposes paddle objects to the Game API.">uLua.PaddleGame.Paddle</a> and <a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html" title="Wrapper class which exposes ball objects to the Game API.">uLua.PaddleGame.Ball</a> objects.</li>
 <li>Invoking of game events and object callback functions.</li>
@@ -154,7 +154,7 @@ Usage Tutorial</h1>
 </ul>
 <h2><a class="anchor" id="autotoc_md7"></a>
 2. Modding the Game</h2>
-<p >The Lua script which is executed by default for this game is listed at the end of this section. You may mod the game by replacing the original script entirely or by extending it.</p>
+<p >The Lua script which is executed by default for this game is listed at the end of this section. You may mod the game by extending this script (adding custom Lua scripts at the end) or replacing the original script entirely.</p>
 <p >To do that, you must place your new Lua scripts in the appropriate external directory. The external directory is set to Unity's <code>Application.persistentDataPath</code> by default. For more information for different platforms, check the <a href="https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html">relevant Unity documentation</a>.</p>
 <p >For this project, and for Windows specifically, the directory for the scripts would be the following:</p>
 <div class="fragment"><div class="line">C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\</div>
@@ -327,8 +327,8 @@ Usage Tutorial</h1>
 <div class="line">RegisterEventHandler(&quot;BrickHit&quot;, &quot;OnBrickHit&quot;, Game);               -- Callback for BrickHit event.</div>
 <div class="line">RegisterEventHandler(&quot;SceneLoaded&quot;, &quot;OnSceneLoaded&quot;, Game);         -- Callback for SceneLoad event.</div>
 <div class="line">RegisterEventHandler(&quot;UIUpdate&quot;, &quot;OnUIUpdate&quot;, Game);               -- Callback for UIUpdate event.</div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
-</div><!-- contents -->
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

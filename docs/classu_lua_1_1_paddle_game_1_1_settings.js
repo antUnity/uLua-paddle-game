@@ -1,6 +1,6 @@
 var classu_lua_1_1_paddle_game_1_1_settings =
 [
-    [ "Settings", "classu_lua_1_1_paddle_game_1_1_settings.html#ad07a41ebe96364bfed09cbef7c035776", null ],
+    [ "Settings", "classu_lua_1_1_paddle_game_1_1_settings.html#a5c6010ea89f948652321cc9effa69e54", null ],
     [ "AddLevel", "classu_lua_1_1_paddle_game_1_1_settings.html#a4ed6d549e909468a2502bd290a108620", null ],
     [ "AddLife", "classu_lua_1_1_paddle_game_1_1_settings.html#ac2d73af90792c1dc7b36217cb5ed0836", null ],
     [ "AddScore", "classu_lua_1_1_paddle_game_1_1_settings.html#ab942718ca0d1bcf610e69a00f45597a9", null ],

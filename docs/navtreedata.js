@@ -25,16 +25,14 @@
 var NAVTREE =
 [
   [ "uLua Paddle Game", "index.html", [
-    [ "uLua Paddle Game", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html", [
-      [ "Dependencies", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "Documentation", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Usage Tutorial", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md3", [
-        [ "1. Scripting API", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md4", [
-          [ "1.1. Game Objects", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md5", null ],
-          [ "1.2. Events and Callback Functions", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md6", null ]
-        ] ],
-        [ "2. Modding the Game", "md__c___users__aris__documents__projects__titania__unity__assets__plugins_u_lua_example__r_e_a_d_m_e.html#autotoc_md7", null ]
-      ] ]
+    [ "Dependencies", "index.html#autotoc_md1", null ],
+    [ "Documentation", "index.html#autotoc_md2", null ],
+    [ "Usage Tutorial", "index.html#autotoc_md3", [
+      [ "1. Scripting API", "index.html#autotoc_md4", [
+        [ "1.1. Game Objects", "index.html#autotoc_md5", null ],
+        [ "1.2. Events and Callback Functions", "index.html#autotoc_md6", null ]
+      ] ],
+      [ "2. Modding the Game", "index.html#autotoc_md7", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]

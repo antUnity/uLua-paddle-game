@@ -2,7 +2,7 @@ var searchData=
 [
   ['scale_0',['Scale',['../classu_lua_1_1_paddle_game_1_1_paddle_controller.html#a3a56c5bb4e4e2e20d14970b2f3ec9c93',1,'uLua.PaddleGame.PaddleController.Scale()'],['../classu_lua_1_1_paddle_game_1_1_paddle.html#afdb9da8f71bcc042c3b310d1168d7589',1,'uLua.PaddleGame.Paddle.Scale()']]],
   ['score_1',['Score',['../classu_lua_1_1_paddle_game_1_1_settings.html#af09d46250fc9fc56e2578082b4e36602',1,'uLua::PaddleGame::Settings']]],
-  ['settings_2',['Settings',['../classu_lua_1_1_paddle_game_1_1_settings.html#ad07a41ebe96364bfed09cbef7c035776',1,'uLua.PaddleGame.Settings.Settings()'],['../classu_lua_1_1_paddle_game_1_1_settings.html',1,'uLua.PaddleGame.Settings']]],
+  ['settings_2',['Settings',['../classu_lua_1_1_paddle_game_1_1_settings.html#a5c6010ea89f948652321cc9effa69e54',1,'uLua.PaddleGame.Settings.Settings()'],['../classu_lua_1_1_paddle_game_1_1_settings.html',1,'uLua.PaddleGame.Settings']]],
   ['slowdown_3',['SlowDown',['../classu_lua_1_1_paddle_game_1_1_game.html#a2879b4e2f50b54fbae438b42265d7479',1,'uLua::PaddleGame::Game']]],
   ['speed_4',['Speed',['../classu_lua_1_1_paddle_game_1_1_ball_controller.html#abdb7acf9dc408f0c5386c96d536af078',1,'uLua.PaddleGame.BallController.Speed()'],['../classu_lua_1_1_paddle_game_1_1_paddle_controller.html#a37521646d25b164c3d237cf8cff2d10b',1,'uLua.PaddleGame.PaddleController.Speed()'],['../classu_lua_1_1_paddle_game_1_1_ball.html#addb29041c2f9bd8f1f46dd5f9982342f',1,'uLua.PaddleGame.Ball.Speed()'],['../classu_lua_1_1_paddle_game_1_1_paddle.html#ae39436757be6bc43e1ba63e3e8bd82b0',1,'uLua.PaddleGame.Paddle.Speed()']]],
   ['speedincrement_5',['SpeedIncrement',['../classu_lua_1_1_paddle_game_1_1_settings.html#a5eaa78babf84f86739159c3c6cae94a7',1,'uLua::PaddleGame::Settings']]],

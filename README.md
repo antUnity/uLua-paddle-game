@@ -6,31 +6,31 @@ uLua is a Game API framework for Unity. It aims to streamline the development of
 
 uLua wraps around MoonSharp and provides an object oriented framework for API development in Lua.
 It works by setting up an application-wide Lua context and exposing game objects to it.
-Objects exposed to Lua can then be accessed in Lua scripts to implement game behaviour in your project.
-User-defined Lua scripts may be executed at runtime to allow modding of your project.
+Objects exposed to Lua can then be accessed in Lua scripts to implement game behaviour.
+In addition, user-defined Lua scripts may be executed at runtime to allow modding of your project.
 
 uLua implements the following features:
 - Script execution framework which allows Lua scripts to be executed from the Resources folder or an external directory.
-- Event handling system which allows you to invoke events from C# and handle them in Lua.
-- Base classes which streamline exposing your game objects and data structures to Lua in order to develop your Game API.
+- Event handling system which allows you to invoke events in C# and handle them in Lua.
+- Base classes which expose your game objects and data structures to Lua in order to develop your Game API.
 - Callback function system for your Game API objects.
 
 ## Dependencies
 
 - [MoonSharp for Unity](https://assetstore.unity.com/packages/tools/moonsharp-33776)
-- [uLua for Unity](https://assetstore.unity.com/packages/slug/226043)
+- [uLua for Unity](https://bit.ly/uLuaAsset)
 
 ## Documentation
 
-This document is accompanied by source code documentation, which is found on the [GitHub pages](https://antunity.github.io/uLua-paddle-game/) of this repository.
+This document is accompanied by source code documentation, which is found on the [GitHub pages](https://bit.ly/PaddleDemoDocs) of the project's repository.
 For any further questions do not hesitate to contact support@antsoftware.co.uk.
 
-Working on this project and documentation has taken many hours. Please support me by starring this project on GitHub.
+This project is the result of many hours of hard work. Please support me by starring this project on GitHub.
 If you purchased uLua, please leave a review on the asset store! Follow my [Twitter](https://twitter.com/_ANTSoftware "@_ANTSoftware")!
 
 ## Usage Tutorial
 
-***Note: It is recommended to read the [uLua Usage Tutorial](https://antunity.github.io/uLua-docs) in the full documentation of uLua before reading this document.***
+***Note: It is recommended to read the [uLua Usage Tutorial](https://bit.ly/uLuaDocs) in the full documentation of uLua before reading this document.***
 
 The basic behaviour and game logic of this game are implemented in Unity Engine. Specifically:
 - Controller scripts for uLua.PaddleGame.Paddle and uLua.PaddleGame.Ball objects.
@@ -91,9 +91,9 @@ The following object callback functions are invoked during the game and may be h
 ### 2. Modding the Game
 
 The Lua script which is executed by default for this game is listed at the end of this section.
-You may mod the game by extending this script (adding custom Lua scripts at the end) or replacing the original script entirely.
+You may mod the game by replacing the original script entirely or by extending it.
 
-To do that, you must place your new Lua scripts in the appropriate external directory.  The external directory is set to Unity's ```Application.persistentDataPath``` by default.
+To do that, you must place your new Lua scripts in the appropriate external directory. The external directory is set to Unity's ```Application.persistentDataPath``` by default.
 For more information for different platforms, check the [relevant Unity documentation](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html).
 
 For this project, and for Windows specifically, the directory for the scripts would be the following:
