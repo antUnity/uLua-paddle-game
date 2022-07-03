@@ -20,10 +20,11 @@ namespace uLua {
             }
 
             // Process Methods
-            // Private
+            // Protected
 
             /// <summary>Initialises the Text component reference on awake.</summary>
-            private void Awake() {
+            protected override void Awake() {
+                base.Awake();
                 Text = GetComponent<Text>();
             }
         }

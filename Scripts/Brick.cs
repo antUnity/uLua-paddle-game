@@ -47,13 +47,16 @@ namespace uLua {
                     Destroy(gameObject);
                 }
             }
-
-            // Private
+            
+            // Protected
 
             /// <summary>Initialises the SpriteRenderer component reference on awake.</summary>
-            private void Awake() {
+            protected override void Awake() {
+                base.Awake();
                 SpriteRenderer = GetComponent<SpriteRenderer>();
             }
+
+            // Private
 
             /// <summary>Invokes the BrickHit event.</summary>
             private void OnCollisionEnter2D(Collision2D Other) {

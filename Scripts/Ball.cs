@@ -63,12 +63,15 @@ namespace uLua {
                 if (Controller) Controller.Reset();
             }
 
-            // Private
+            // Protected
 
             /// <summary>Initialises the BallController component reference on awake.</summary>
-            private void Awake() {
+            protected override void Awake() {
+                base.Awake();
                 Controller = GetComponent<BallController>();
             }
+
+            // Private
 
             /// <summary>Called when a Ball object collides with any other object.</summary>
             /** Invokes OnHit event for a Ball object.

@@ -48,12 +48,15 @@ namespace uLua {
                 if (Controller) Controller.Reset();
             }
 
-            // Private
+            // Protected
 
             /// <summary>Initialises the PaddleController component reference on awake.</summary>
-            private void Awake() {
+            protected override void Awake() {
+                base.Awake();
                 Controller = GetComponent<PaddleController>();
             }
+
+            // Private
 
             /// <summary>Updates the latest ContactPoint of any ball with the paddle. Invokes the OnHit event for the paddle object.</summary>
             /** The ```ContactPoint``` vector indicates the relative position where a ball hit the paddle in the range of (-1, 1) and it is used to adjust the angle of the Ball to allow a degree of player control. */
