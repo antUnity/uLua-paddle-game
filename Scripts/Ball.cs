@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace uLua {
     namespace PaddleGame {
-        /// <summary>Wrapper class which exposes ball objects to the Game API.</summary>
+        /// <summary>Wrapper class which exposes ball objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Ball : ExposedMonoBehaviour<Ball> {
             // Members
@@ -21,27 +21,27 @@ namespace uLua {
             // Public
 
             /// <summary>Access/set the delay (in seconds) before the ball is set in motion.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public float Delay {
                 get { return Controller ? Controller.Delay : 0f; }
                 set { if (Controller) Controller.Delay = value; }
             }
 
             /// <summary>Checks if the ball is in risk of getting stuck bouncing in a straight line back and forth (horizontally or vertically).</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public bool IsStuck {
                 get { return Controller ? Controller.IsStuck : false; }
             }
 
             /// <summary>Access/set the speed of the ball.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public float Speed {
                 get { return Controller ? Controller.Speed : 0f; }
                 set { if (Controller) Controller.Speed = value; }
             }
 
             /// <summary>Access/set the starting position of the ball.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public Vector2 StartingPosition {
                 get { return Controller ? Controller.StartingPosition : Vector2.zero; }
                 set { if (Controller) Controller.StartingPosition = value; }
@@ -51,14 +51,14 @@ namespace uLua {
             // Public
 
             /// <summary>Adjusts the angle of motion of the ball by the specified value.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
             /** @param Degrees The adjustment value (in degrees) for the angle. */
             public void AdjustAngle(float Degrees) {
                 if (Controller) Controller.AdjustAngle(Degrees);
             }
 
             /// <summary>Resets the position of the ball to its starting position and sets the ball in motion.</summary>
-            /** This method is exposed to the Game API. */
+            /** This method is exposed to the API. */
             public void Reset() {
                 if (Controller) Controller.Reset();
             }

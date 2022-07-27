@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="uLua-160x160.png"/></td>
   <td id="projectalign">
-   <div id="projectname">uLua Paddle Game<span id="projectnumber">&#160;v1.0.0</span>
+   <div id="projectname">uLua Paddle Game<span id="projectnumber">&#160;v1.1.0</span>
    </div>
    <div id="projectbrief">A paddle game for Unity  made as an example use of the uLua toolkit.</div>
   </td>
@@ -86,13 +86,14 @@ $(document).ready(function(){initNavTree('classu_lua_1_1_paddle_game_1_1_ball.ht
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="classu_lua_1_1_paddle_game_1_1_ball-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">uLua.PaddleGame.Ball Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Wrapper class which exposes ball objects to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. 
+<p>Wrapper class which exposes ball objects to the API. 
  <a href="classu_lua_1_1_paddle_game_1_1_ball.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -103,6 +104,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac315228f6a95f8bc773e4e0afa8eca80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_ball.html#ac315228f6a95f8bc773e4e0afa8eca80">Reset</a> ()</td></tr>
 <tr class="memdesc:ac315228f6a95f8bc773e4e0afa8eca80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the position of the ball to its starting position and sets the ball in motion. <a href="classu_lua_1_1_paddle_game_1_1_ball.html#ac315228f6a95f8bc773e4e0afa8eca80">More...</a><br /></td></tr>
 <tr class="separator:ac315228f6a95f8bc773e4e0afa8eca80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a067fff18336ebe70a38d8485b24f08e4"><td class="memItemLeft" align="right" valign="top"><a id="a067fff18336ebe70a38d8485b24f08e4" name="a067fff18336ebe70a38d8485b24f08e4"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr>
+<tr class="memdesc:a067fff18336ebe70a38d8485b24f08e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the <a class="el" href="classu_lua_1_1_paddle_game_1_1_ball_controller.html" title="Implements controls for ball objects.">BallController</a> component reference on awake.<br /></td></tr>
+<tr class="separator:a067fff18336ebe70a38d8485b24f08e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -120,7 +128,7 @@ Properties</h2></td></tr>
 <tr class="separator:ade63122332d31829d2235a06e370e2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Wrapper class which exposes ball objects to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API.</p>
+<div class="textblock"><p >Wrapper class which exposes ball objects to the API.</p>
 <p >All public members of this class are exposed to Lua. Inherits from <code>uLua.ExposedMonoBehaviour</code>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a85a117815daeaf8689041462f51338e7" name="a85a117815daeaf8689041462f51338e7"></a>
@@ -148,7 +156,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adjusts the angle of motion of the ball by the specified value.</p>
-<p >This method is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. /**</p><dl class="params"><dt>Parameters</dt><dd>
+<p >This method is exposed to the API. /**</p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Degrees</td><td>The adjustment value (in degrees) for the angle. </td></tr>
   </table>
@@ -181,7 +189,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Resets the position of the ball to its starting position and sets the ball in motion.</p>
-<p >This method is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+<p >This method is exposed to the API. </p>
 
 </div>
 </div>
@@ -207,7 +215,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Access/set the delay (in seconds) before the ball is set in motion.</p>
-<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+<p >This property is exposed to the API. </p>
 
 </div>
 </div>
@@ -232,7 +240,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the ball is in risk of getting stuck bouncing in a straight line back and forth (horizontally or vertically).</p>
-<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+<p >This property is exposed to the API. </p>
 
 </div>
 </div>
@@ -257,7 +265,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Access/set the speed of the ball.</p>
-<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+<p >This property is exposed to the API. </p>
 
 </div>
 </div>
@@ -282,7 +290,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Access/set the starting position of the ball.</p>
-<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+<p >This property is exposed to the API. </p>
 
 </div>
 </div>

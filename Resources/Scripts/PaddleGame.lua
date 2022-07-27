@@ -1,6 +1,6 @@
---[[ June 2022 																											]]
+--[[ August 2022 																										]]
 --[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game.						]]
---[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.											]]
+--[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.							]]
 
 math.randomseed(os.time());					-- Used to generate random seed.
 
@@ -16,6 +16,14 @@ local BrickColors = {						-- Brick color table. Used to color blocks by differe
 	{0.0, 0.0, 1.0}, 						-- (9) Blue
 	{1.0, 0.0, 1.0}, 						-- (10) Magenta
 }
+
+--[[ Settings 																											]]
+
+Settings.MaximumLevel = 10;					-- Used to indicate the maximum game level.
+Settings.Delay = 0.5;						-- Delay before the ball is set in motion (in seconds).
+
+Settings.SpeedIncrement = 0.125;			-- Ball/Paddle speed increment per level.
+Settings.ColorMultiplier = 0.75;			-- Multiplier to adjust the brick color intensity.
 
 --[[ Methods 																											]]
 --[[ The following methods are fully implemented in Lua and have no equivalent in Unity. 								]]
@@ -37,22 +45,6 @@ function Game:OnLevelFinished()
 
 	-- Start new level
 	self:Start();
-end
-
--- Used to reset the game state when all lives are lost.
-function Settings:Reset()
-	Game:SlowDown();
-	
-	self.Level = 1; 						-- Used to keep track of the current level.
-	self.Lives = 3;							-- Used to keep track of remaining lives.
-	self.Score = 0;							-- Used to keep track of player score.
-	self.MaximumLevel = 10;					-- Used to indicate the maximum game level.
-	self.Delay = 0.5;						-- Delay before the ball is set in motion (in seconds).
-	
-	self.SpeedIncrement = 0.125;			-- Ball/Paddle speed increment per level.
-	self.ColorMultiplier = 0.75;			-- Multiplier to adjust the brick color intensity.
-	
-	Game:OnUIUpdate();						-- Force UI Update.
 end
 
 -- Used to generate a random arrangement of bricks.
@@ -99,7 +91,7 @@ function Game:OnBoundaryHit(Ball)
 		
 		-- Reset game state if all lives were used
 		if (Settings.Lives < 0) then
-			self:OnSceneLoaded();
+			self:Reset();
 		else
 		-- Reset Paddle/Ball positions
 			self:ResetPositions();
@@ -145,22 +137,7 @@ function Game:OnBrickHit(Brick)
 	Brick:Damage(1);
 end
 
--- Resets settings and starts the game.
-function Game:OnSceneLoaded()
-	Settings:Reset();
-	self:Start();
-end
-
--- Updates all UIText objects.
-function Game:OnUIUpdate()
-	LevelText.Message = "LEVEL: " .. Settings.Level;
-	LivesText.Message = "LIVES: " .. Settings.Lives;
-	ScoreText.Message = "SCORE: " .. Settings.Score;
-end
-
 -- The following commands register event handlers for different events invoked within Unity.
 RegisterEventHandler("BoundaryHit", "OnBoundaryHit", Game);			-- Callback for BoundaryHit event.
 RegisterEventHandler("BrickDestroyed", "OnBrickDestroyed", Game);	-- Callback for BrickDestroyed event.
 RegisterEventHandler("BrickHit", "OnBrickHit", Game);				-- Callback for BrickHit event.
-RegisterEventHandler("SceneLoaded", "OnSceneLoaded", Game);			-- Callback for SceneLoad event.
-RegisterEventHandler("UIUpdate", "OnUIUpdate", Game);				-- Callback for UIUpdate event.

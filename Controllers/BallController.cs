@@ -44,7 +44,7 @@ namespace uLua {
             }
 
             /// <summary>Resets the position of the ball to its starting position and sets the ball in motion.</summary>
-            /** This method is exposed to the Game API by the uLua.PaddleGame.Ball class. */
+            /** This method is exposed to the API by the uLua.PaddleGame.Ball class. */
             public void Reset () {
                 transform.position = StartingPosition;
                 Start();

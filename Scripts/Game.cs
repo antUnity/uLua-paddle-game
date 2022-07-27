@@ -36,25 +36,25 @@ namespace uLua {
             // Public
 
             /// <summary>Returns the number of balls currently loaded in the scene.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public int NumBalls {
                 get { return Balls.Count; }
             }
 
             /// <summary>Returns the number of bricks currently loaded in the scene.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public int NumBricks {
                 get { return Bricks.Count; }
             }
 
             /// <summary>Returns the number of paddles currently loaded in the scene.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public int NumPaddles {
                 get { return Paddles.Count; }
             }
 
             /// <summary>Returns the ball at index i.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
                 @param i The index of the object. */
             public Ball GetBall(int i) {
                 Ball Ball = null;
@@ -63,7 +63,7 @@ namespace uLua {
             }
 
             /// <summary>Returns the brick at index i.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
                 @param i The index of the object. */
             public Brick GetBrick(int i) {
                 Brick Brick = null;
@@ -72,7 +72,7 @@ namespace uLua {
             }
 
             /// <summary>Returns the paddle at index i.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
                 @param i The index of the object. */
             public Paddle GetPaddle(int i) {
                 Paddle Paddle = null;
@@ -84,7 +84,7 @@ namespace uLua {
             // Public
 
             /// <summary>Adds a ball to the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param X, Y Coordinates of the new ball object.
              *  @param Speed Speed of the new ball object.
              *  @param Delay Time before the ball is set in motion. 
@@ -100,6 +100,7 @@ namespace uLua {
 
                         Ball = Object.GetComponent<Ball>();
                         if (Ball) {
+                            Ball.ExposeOn = ExposeOn.None;
                             API.Expose(Ball);
 
                             Ball.Speed = Speed;
@@ -115,7 +116,7 @@ namespace uLua {
             }
 
             /// <summary>Adds a brick to the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param X, Y Coordinates of the new brick object.
              *  @param Health Health of the new brick object. 
                 @param Name (Optional) Name of the new paddle object. */
@@ -130,6 +131,7 @@ namespace uLua {
 
                         Brick = Object.GetComponent<Brick>();
                         if (Brick) {
+                            Brick.ExposeOn = ExposeOn.None;
                             API.Expose(Brick, this);
 
                             Brick.Health = Health;
@@ -144,7 +146,7 @@ namespace uLua {
             }
 
             /// <summary>Adds a paddle to the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param X, Y Coordinates of the new paddle object.
              *  @param Speed Speed of the new paddle object.
              *  @param Scale (Optional) Scale of the new paddle object.
@@ -161,6 +163,7 @@ namespace uLua {
                         Paddle = Object.GetComponent<Paddle>();
 
                         if (Paddle) {
+                            Paddle.ExposeOn = ExposeOn.None;
                             API.Expose(Paddle);
 
                             Paddle.Speed = Speed;
@@ -176,7 +179,7 @@ namespace uLua {
             }
 
             /// <summary>Resets the scene by clearing all loaded objects.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  Destroys all balls, bricks, and paddles and removes them from the scene. */
             public void Clear() {
                 // Balls
@@ -199,7 +202,7 @@ namespace uLua {
             }
 
             /// <summary>Destroys a brick and removes it from the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param Brick The Brick to be removed. */
             public void RemoveBrick(Brick Brick) {
                 if (Bricks.Contains(Brick)) {
@@ -209,7 +212,7 @@ namespace uLua {
             }
 
             /// <summary>Destroys a ball and removes it from the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param Ball The Ball to be removed. */
             public void RemoveBall(Ball Ball) {
                 if (Balls.Contains(Ball)) {
@@ -219,7 +222,7 @@ namespace uLua {
             }
 
             /// <summary>Destroys a paddle and removes it from the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param Paddle The Paddle to be removed. */
             public void RemovePaddle(Paddle Paddle) {
                 if (Paddles.Contains(Paddle)) {
@@ -229,7 +232,7 @@ namespace uLua {
             }
 
             /// <summary>Resets the position of all balls and paddles loaded in the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  Used to reset the scene without changing any game settings. */
             public void ResetPositions() {
                 foreach (Ball Ball in Balls) Ball.Reset();
@@ -237,7 +240,7 @@ namespace uLua {
             }
 
             /// <summary>Resets the speed of all balls and paddles loaded in the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param SpeedIncrement (Optional) The value (per game level) to be retracted from the ball/paddle speed and paddle scale. */
             public void SlowDown(float SpeedIncrement = 0f) {
                 if (SpeedIncrement == 0f) SpeedIncrement = Settings.SpeedIncrement;
@@ -251,7 +254,7 @@ namespace uLua {
             }
 
             /// <summary>Speeds up all balls and paddles loaded in the scene.</summary>
-            /** This method is exposed to the Game API.
+            /** This method is exposed to the API.
              *  @param SpeedIncrement (Optional) The value to be added to ball/paddle speed and paddle scale. */
             public void SpeedUp(float SpeedIncrement = 0f) {
                 if (SpeedIncrement == 0f) SpeedIncrement = Settings.SpeedIncrement;
@@ -261,6 +264,27 @@ namespace uLua {
                     Paddle.Speed += SpeedIncrement;
                     Paddle.Scale += SpeedIncrement;
                 }
+            }
+
+            // Protected
+            
+            /// <summary>Loads saved data and registers event handlers.</summary>
+            /** The event handlers are defined in the Game Lua script in the resource folder. */
+            protected override void Start() {
+                base.Start();
+
+                API.LoadSavedData(this);
+                API.RegisterEventHandler("SceneLoaded", "OnSceneLoaded", this);
+                API.RegisterEventHandler("UIUpdate", "OnUIUpdate", this);
+            }
+
+            /// <summary>Saves Lua data when the object is destroyed.</summary>
+            /** The "SaveData" field is defined in the Game Lua script in the resource folder. */
+            protected override void OnDestroy() {
+                base.OnDestroy();
+
+                API.SaveData(this);
+                API.RemoveEventHandlers(this);
             }
         }
     }

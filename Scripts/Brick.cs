@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace uLua {
     namespace PaddleGame {
-        /// <summary>Wrapper class which exposes brick objects to the Game API.</summary>
+        /// <summary>Wrapper class which exposes brick objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Brick : ExposedMonoBehaviour<Brick> {
             // Members
@@ -27,7 +27,7 @@ namespace uLua {
             // Public
 
             /// <summary>Access/set the Color of the brick.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public Color Color {
                 get { return SpriteRenderer ? SpriteRenderer.color : Color.white; }
                 set { if (SpriteRenderer) SpriteRenderer.color = value; }

@@ -28,11 +28,11 @@ var NAVTREE =
     [ "Dependencies", "index.html#autotoc_md1", null ],
     [ "Documentation", "index.html#autotoc_md2", null ],
     [ "Usage Tutorial", "index.html#autotoc_md3", [
-      [ "1. Scripting API", "index.html#autotoc_md4", [
-        [ "1.1. Game Objects", "index.html#autotoc_md5", null ],
-        [ "1.2. Events and Callback Functions", "index.html#autotoc_md6", null ]
-      ] ],
-      [ "2. Modding the Game", "index.html#autotoc_md7", null ]
+      [ "1. Modding the Game", "index.html#autotoc_md4", null ],
+      [ "2. Scripting API", "index.html#autotoc_md5", [
+        [ "2.1. Game Objects", "index.html#autotoc_md6", null ],
+        [ "2.2. Events and Callback Functions", "index.html#autotoc_md7", null ]
+      ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]

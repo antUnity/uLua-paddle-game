@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace uLua {
     namespace PaddleGame {
-        /// <summary>Wrapper class which exposes paddle objects to the Game API.</summary>
+        /// <summary>Wrapper class which exposes paddle objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Paddle : ExposedMonoBehaviour<Paddle> {
             // Members
@@ -13,27 +13,27 @@ namespace uLua {
             // Public
 
             /// <summary>Returns the last known contact point of the ball relative to the center of the paddle object.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public Vector2 ContactPoint {
                 get { return Controller ? Controller.ContactPoint : Vector2.zero; }
             }
 
             /// <summary>Access/set the scale of the paddle.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public float Scale {
                 get { return Controller ? Controller.Scale : 1; }
                 set { if (Controller) Controller.Scale = value; }
             }
 
             /// <summary>Access/set the speed of the paddle.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public float Speed {
                 get { return Controller ? Controller.Speed : 0; }
                 set { if (Controller) Controller.Speed = value; }
             }
 
             /// <summary>Access/set the starting position of the paddle.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public Vector2 StartingPosition {
                 get { return Controller ? Controller.StartingPosition : Vector2.zero; }
                 set { if (Controller) Controller.StartingPosition = value; }
@@ -43,7 +43,7 @@ namespace uLua {
             // Public
 
             /// <summary>Resets the position of the paddle to its starting position.</summary>
-            /** This method is exposed to the Game API. */
+            /** This method is exposed to the API. */
             public void Reset() {
                 if (Controller) Controller.Reset();
             }

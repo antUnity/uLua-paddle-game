@@ -33,7 +33,7 @@ namespace uLua {
             // Public
 
             /// <summary>Resets the position of the paddle to its starting position.</summary>
-            /** This method is exposed to the Game API by the uLua.PaddleGame.Paddle class. */
+            /** This method is exposed to the API by the uLua.PaddleGame.Paddle class. */
             public void Reset() {
                 transform.position = StartingPosition;
             }

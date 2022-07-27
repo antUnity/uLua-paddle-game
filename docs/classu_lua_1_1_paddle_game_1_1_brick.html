@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="uLua-160x160.png"/></td>
   <td id="projectalign">
-   <div id="projectname">uLua Paddle Game<span id="projectnumber">&#160;v1.0.0</span>
+   <div id="projectname">uLua Paddle Game<span id="projectnumber">&#160;v1.1.0</span>
    </div>
    <div id="projectbrief">A paddle game for Unity  made as an example use of the uLua toolkit.</div>
   </td>
@@ -87,13 +87,14 @@ $(document).ready(function(){initNavTree('classu_lua_1_1_paddle_game_1_1_brick.h
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="classu_lua_1_1_paddle_game_1_1_brick-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">uLua.PaddleGame.Brick Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Wrapper class which exposes brick objects to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. 
+<p>Wrapper class which exposes brick objects to the API. 
  <a href="classu_lua_1_1_paddle_game_1_1_brick.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -113,6 +114,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MaxHealth</b> = 1</td>
 <tr class="memdesc:af5c61d7013e678fcd9ecff5f26ae9cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum health value of the brick.<br /></td></tr>
 <tr class="separator:af5c61d7013e678fcd9ecff5f26ae9cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a15ea709e8f5b476422932076ba48a82a"><td class="memItemLeft" align="right" valign="top"><a id="a15ea709e8f5b476422932076ba48a82a" name="a15ea709e8f5b476422932076ba48a82a"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><b>Awake</b> ()</td></tr>
+<tr class="memdesc:a15ea709e8f5b476422932076ba48a82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the SpriteRenderer component reference on awake.<br /></td></tr>
+<tr class="separator:a15ea709e8f5b476422932076ba48a82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:aaaf9cbc81d57b752bd2459533522991a"><td class="memItemLeft" align="right" valign="top">Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classu_lua_1_1_paddle_game_1_1_brick.html#aaaf9cbc81d57b752bd2459533522991a">Color</a><code> [get, set]</code></td></tr>
@@ -120,7 +128,7 @@ Properties</h2></td></tr>
 <tr class="separator:aaaf9cbc81d57b752bd2459533522991a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Wrapper class which exposes brick objects to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API.</p>
+<div class="textblock"><p >Wrapper class which exposes brick objects to the API.</p>
 <p >All public members of this class are exposed to Lua. Inherits from <code>uLua.ExposedMonoBehaviour</code>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6df2c11e63116dab047bc7a14089d63e" name="a6df2c11e63116dab047bc7a14089d63e"></a>
@@ -174,7 +182,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Access/set the Color of the brick.</p>
-<p >This property is exposed to the <a class="el" href="classu_lua_1_1_paddle_game_1_1_game.html" title="Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.">Game</a> API. </p>
+<p >This property is exposed to the API. </p>
 
 </div>
 </div>

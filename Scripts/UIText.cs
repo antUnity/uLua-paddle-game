@@ -2,7 +2,7 @@ using UnityEngine.UI;
 
 namespace uLua {
     namespace PaddleGame {
-        /// <summary>Wrapper class which exposes a UI Text object to the Game API.</summary>
+        /// <summary>Wrapper class which exposes a UI Text object to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class UIText : ExposedMonoBehaviour<UIText> {
             // Members
@@ -13,7 +13,7 @@ namespace uLua {
             // Public
 
             /// <summary>Access/set the message of the Text component.</summary>
-            /** This property is exposed to the Game API. */
+            /** This property is exposed to the API. */
             public string Message {
                 get { return Text ? Text.text : ""; }
                 set { if (Text) Text.text = value; }

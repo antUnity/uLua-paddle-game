@@ -2,18 +2,17 @@
 
 In this project I have developed an API for a basic paddle game to demonstrate the flexibility of the uLua API framework as a modding tool.
 
-uLua is a Game API framework for Unity. It aims to streamline the development of a Game API in Lua for your Unity Project.
+uLua is a Lua API framework for Unity. It aims to streamline the development of an API for your Unity Project using Lua.
 
-uLua wraps around MoonSharp and provides an object oriented framework for API development in Lua.
+uLua wraps around MoonSharp and provides an object oriented Lua API framework.
 It works by setting up an application-wide Lua context and exposing game objects to it.
-Objects exposed to Lua can then be accessed in Lua scripts to implement game behaviour.
-In addition, user-defined Lua scripts may be executed at runtime to allow modding of your project.
+Objects exposed to the API can then be accessed in Lua, allowing users modify your game by executing Lua scripts at runtime. 
 
 uLua implements the following features:
 - Script execution framework which allows Lua scripts to be executed from the Resources folder or an external directory.
 - Event handling system which allows you to invoke events in C# and handle them in Lua.
-- Base classes which expose your game objects and data structures to Lua in order to develop your Game API.
-- Callback function system for your Game API objects.
+- Base classes which expose your game objects and data structures to Lua.
+- Callback function system for your API objects.
 
 ## Dependencies
 
@@ -38,21 +37,41 @@ The basic behaviour and game logic of this game are implemented in Unity Engine.
 - Collision detection logic for all objects.
 
 However, the Unity scene for this game does not contain a ball, paddle, or bricks.
-The levels for this game are set up entirely through the Game API in Lua.
+The levels for this game are set up entirely through the Lua API.
 
-### 1. Scripting API
+### 1. Modding the Game
 
-#### 1.1. Game Objects
+The Lua script which is executed by default for this game is listed at the end of this section.
+You may mod the game by replacing the original script entirely or by extending it.
 
-The Game API contains the following objects/data structures:
+To do that, you must place your new Lua scripts in the appropriate external directory. The external directory is set to Unity's ```Application.persistentDataPath``` by default.
+For more information for different platforms, check the [relevant Unity documentation](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html).
+
+For this project, and for Windows specifically, the directory for the scripts would be the following:
+
+```
+C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\Scripts\PaddleGame\
+```
+
+In order to replace the original scene script you must create a file named ***PaddleGame.lua*** in this directory.
+You may also create other scripts in this directory which will be executed after the scene script.
+I recommend copying the script below to start making small tweaks to familiarize yourself with the game API.
+
+
+### 2. Scripting API
+
+#### 2.1. Game Objects
+
+The API contains the following objects/data structures:
 - **Game**: Manager object which is used to create and keep track of Balls, Paddles, and Bricks within the level.
 - **Settings**: Data structure which contains the current level, remaining lives, score, and other game settings.
 - **LevelText**: UI element to display the current level.
 - **LivesText**: UI element to display the remaining lives.
 - **ScoreText**: UI element to display the player score.
+- **HighScoreText**: UI element to display the player score.
 
-All ball, brick, and paddle objects are also exposed to the Game API, however, their names are based on
-the application runtime, unless specified otherwise in the corresponding command:
+All ball, brick, and paddle objects are also exposed to the API, however, their names are based
+on the application runtime, unless specified otherwise in the corresponding command:
 
 ```
 Game:AddBall(0, 0, 5, 0.5, "BallName");
@@ -66,7 +85,7 @@ Ball12345
 ```
 
 Each Lua object contains various methods as defined in their corresponding Unity scripts. For a full list of the members of all object types,
-refer to the relevant source code documentation. Remember that all public members of the following classes are accessible in the Game API.
+refer to the relevant source code documentation. Remember that all public members of the following classes are accessible in the Lua API.
 - uLua.PaddleGame.Ball
 - uLua.PaddleGame.Brick
 - uLua.PaddleGame.Paddle
@@ -74,7 +93,7 @@ refer to the relevant source code documentation. Remember that all public member
 - uLua.PaddleGame.Settings
 - uLua.PaddleGame.UIText
 
-#### 1.2. Events and Callback Functions
+#### 2.2. Events and Callback Functions
 
 The following events are invoked during the game and may be handled in Lua:
 - **BoundaryHit**: Invoked when a ball hits the bottom screen boundary.
@@ -88,31 +107,10 @@ The following object callback functions are invoked during the game and may be h
 - **Brick:OnHit()**:  Called when a brick hits an object. To handle in the API, the brick name must be known.
 - **Paddle:OnHit()**: Called when a paddle hits an object. To handle in the API, the paddle name must be known.
 
-### 2. Modding the Game
-
-The Lua script which is executed by default for this game is listed at the end of this section.
-You may mod the game by replacing the original script entirely or by extending it.
-
-To do that, you must place your new Lua scripts in the appropriate external directory. The external directory is set to Unity's ```Application.persistentDataPath``` by default.
-For more information for different platforms, check the [relevant Unity documentation](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html).
-
-For this project, and for Windows specifically, the directory for the scripts would be the following:
-
-```
-C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\
-```
-
-In order to replace the original scene script you must create a file named ***PaddleGame.lua*** in this directory. I recommend copying the script below to start making small tweaks to familiarize yourself with the game API.
-
-In order to extend the original scene script you may add any lua scripts in the "UserScripts" folder within the external directory. Again, for Windows that would be the following:
-
-```
-C:\Users\{User}\AppData\LocalLow\ANT Software\Paddle Game\UserScripts\
-```
 
 ***PaddleGame.lua***
 ```
---[[ June 2022 																											]]
+--[[ August 2022 																										]]
 --[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game.						]]
 --[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.							]]
 
@@ -130,6 +128,14 @@ local BrickColors = {						-- Brick color table. Used to color blocks by differe
 	{0.0, 0.0, 1.0}, 						-- (9) Blue
 	{1.0, 0.0, 1.0}, 						-- (10) Magenta
 }
+
+--[[ Settings 																											]]
+
+Settings.MaximumLevel = 10;					-- Used to indicate the maximum game level.
+Settings.Delay = 0.5;						-- Delay before the ball is set in motion (in seconds).
+
+Settings.SpeedIncrement = 0.125;			-- Ball/Paddle speed increment per level.
+Settings.ColorMultiplier = 0.75;			-- Multiplier to adjust the brick color intensity.
 
 --[[ Methods 																											]]
 --[[ The following methods are fully implemented in Lua and have no equivalent in Unity. 								]]
@@ -151,22 +157,6 @@ function Game:OnLevelFinished()
 
 	-- Start new level
 	self:Start();
-end
-
--- Used to reset the game state when all lives are lost.
-function Settings:Reset()
-	Game:SlowDown();
-	
-	self.Level = 1; 						-- Used to keep track of the current level.
-	self.Lives = 3;							-- Used to keep track of remaining lives.
-	self.Score = 0;							-- Used to keep track of player score.
-	self.MaximumLevel = 10;					-- Used to indicate the maximum game level.
-	self.Delay = 0.5;						-- Delay before the ball is set in motion (in seconds).
-	
-	self.SpeedIncrement = 0.125;			-- Ball/Paddle speed increment per level.
-	self.ColorMultiplier = 0.75;			-- Multiplier to adjust the brick color intensity.
-	
-	Game:OnUIUpdate();						-- Force UI Update.
 end
 
 -- Used to generate a random arrangement of bricks.
@@ -213,7 +203,7 @@ function Game:OnBoundaryHit(Ball)
 		
 		-- Reset game state if all lives were used
 		if (Settings.Lives < 0) then
-			self:OnSceneLoaded();
+			self:Reset();
 		else
 		-- Reset Paddle/Ball positions
 			self:ResetPositions();
@@ -259,25 +249,8 @@ function Game:OnBrickHit(Brick)
 	Brick:Damage(1);
 end
 
--- Resets settings and starts the game.
-function Game:OnSceneLoaded()
-	Settings:Reset();
-	self:Start();
-end
-
--- Updates all UIText objects.
-function Game:OnUIUpdate()
-	LevelText.Message = "LEVEL: " .. Settings.Level;
-	LivesText.Message = "LIVES: " .. Settings.Lives;
-	ScoreText.Message = "SCORE: " .. Settings.Score;
-end
-
 -- The following commands register event handlers for different events invoked within Unity.
 RegisterEventHandler("BoundaryHit", "OnBoundaryHit", Game);			-- Callback for BoundaryHit event.
 RegisterEventHandler("BrickDestroyed", "OnBrickDestroyed", Game);	-- Callback for BrickDestroyed event.
 RegisterEventHandler("BrickHit", "OnBrickHit", Game);				-- Callback for BrickHit event.
-RegisterEventHandler("SceneLoaded", "OnSceneLoaded", Game);			-- Callback for SceneLoad event.
-RegisterEventHandler("UIUpdate", "OnUIUpdate", Game);				-- Callback for UIUpdate event.
 ```
-
-
