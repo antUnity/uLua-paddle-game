@@ -68,7 +68,7 @@ The API contains the following objects/data structures:
 - **LevelText**: UI element to display the current level.
 - **LivesText**: UI element to display the remaining lives.
 - **ScoreText**: UI element to display the player score.
-- **HighScoreText**: UI element to display the player score.
+- **HighScoreText**: UI element to display the player high score.
 
 All ball, brick, and paddle objects are also exposed to the API, however, their names are based
 on the application runtime, unless specified otherwise in the corresponding command:
