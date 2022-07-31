@@ -270,8 +270,8 @@ namespace uLua {
             
             /// <summary>Loads saved data and registers event handlers.</summary>
             /** The event handlers are defined in the Game Lua script in the resource folder. */
-            protected override void Start() {
-                base.Start();
+            protected override void Awake() {
+                base.Awake();
 
                 API.LoadSavedData(this);
                 API.RegisterEventHandler("SceneLoaded", "OnSceneLoaded", this);
