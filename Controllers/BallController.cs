@@ -4,7 +4,7 @@ namespace uLua {
     namespace PaddleGame {
         /// <summary>Implements controls for ball objects.</summary>
         public class BallController : MonoBehaviour {
-            // Members
+            // Fields
             /** <summary>Movement speed of the ball object.</summary> */
             public float Speed = 0f;
 
@@ -20,7 +20,7 @@ namespace uLua {
             /** <summary>Reference time for the delayed start.</summary> */
             private float StartTime = -1f;
 
-            // Access Methods
+            // Properties
             // Public
 
             /// <summary>Checks if the ball is in risk of getting stuck bouncing in a straight line back and forth (horizontally or vertically).</summary>
@@ -30,7 +30,7 @@ namespace uLua {
                 }
             }
 
-            // Process Methods
+            // Methods
             // Public
 
             /// <summary>Adjusts the angle of motion of the ball by the specified value.</summary>

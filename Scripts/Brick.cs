@@ -5,7 +5,7 @@ namespace uLua {
         /// <summary>Wrapper class which exposes brick objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Brick : ExposedMonoBehaviour<Brick> {
-            // Members
+            // Fields
             /** <summary>Reference to the SpriteRenderer component of the brick object.</summary> */
             private SpriteRenderer SpriteRenderer = null;       //!< 
 
@@ -15,8 +15,6 @@ namespace uLua {
             /** <summary>Maximum health value of the brick.</summary> */
             public int MaxHealth = 1;
 
-            // Access Methods
-
             /// <summary>Static class constructor. Registers the Color type to Lua.</summary>
             /** This static constructor is only executed once. */
             static Brick() {
@@ -24,6 +22,7 @@ namespace uLua {
                 Lua.Set("Color", new Color());
             }
 
+            // Properties
             // Public
 
             /// <summary>Access/set the Color of the brick.</summary>
@@ -33,7 +32,7 @@ namespace uLua {
                 set { if (SpriteRenderer) SpriteRenderer.color = value; }
             }
 
-            // Process Methods
+            // Methods
             // Public
 
             /// <summary>Damages the brick and handles object destruction if its health is depleted.</summary>

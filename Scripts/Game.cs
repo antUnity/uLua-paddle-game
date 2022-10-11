@@ -10,7 +10,7 @@ namespace uLua {
         /// <summary>Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Game : ExposedMonoBehaviour<Game> {
-            // Members
+            // Fields
             /** <summary>Reference to the prefab used to instantiate ball objects.</summary> */
             [SerializeField] private GameObject BallPrefab = null;
 
@@ -32,7 +32,7 @@ namespace uLua {
             /** <summary>Structure which keeps track of various game settings.</summary> */
             [SerializeField] private Settings Settings = new Settings("Settings");
 
-            // Access Methods
+            // Properties
             // Public
 
             /// <summary>Returns the number of balls currently loaded in the scene.</summary>
@@ -80,7 +80,7 @@ namespace uLua {
                 return Paddle;
             }
 
-            // Process Methods
+            // Methods
             // Public
 
             /// <summary>Adds a ball to the scene.</summary>

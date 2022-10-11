@@ -5,11 +5,9 @@ namespace uLua {
         /// <summary>Wrapper class which exposes ball objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Ball : ExposedMonoBehaviour<Ball> {
-            // Members
+            // Fields
             /** <summary>Reference to the BallController component of the ball object.</summary> */
             private BallController Controller = null;
-
-            // Access Methods
 
             /// <summary>Static class constructor. Registers the Vector2 type to Lua.</summary>
             /** This static constructor is only executed once. */
@@ -18,6 +16,7 @@ namespace uLua {
                 Lua.Set("Vector2", new Vector2());
             }
 
+            // Properties
             // Public
 
             /// <summary>Access/set the delay (in seconds) before the ball is set in motion.</summary>
@@ -47,7 +46,7 @@ namespace uLua {
                 set { if (Controller) Controller.StartingPosition = value; }
             }
 
-            // Process Methods
+            // Methods
             // Public
 
             /// <summary>Adjusts the angle of motion of the ball by the specified value.</summary>

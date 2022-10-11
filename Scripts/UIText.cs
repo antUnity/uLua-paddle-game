@@ -5,11 +5,11 @@ namespace uLua {
         /// <summary>Wrapper class which exposes a UI Text object to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class UIText : ExposedMonoBehaviour<UIText> {
-            // Members
+            // Fields
             /** <summary>Reference to the Text component of the object.</summary> */
             private Text Text = null;
 
-            // Access Methods
+            // Properties
             // Public
 
             /// <summary>Access/set the message of the Text component.</summary>
@@ -19,7 +19,7 @@ namespace uLua {
                 set { if (Text) Text.text = value; }
             }
 
-            // Process Methods
+            // Methods
             // Protected
 
             /// <summary>Initialises the Text component reference on awake.</summary>

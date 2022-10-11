@@ -4,7 +4,7 @@ namespace uLua {
     namespace PaddleGame {
         /// <summary>Implements controls for paddle objects.</summary>
         public class PaddleController : MonoBehaviour {
-            // Members
+            // Fields
             /** <summary>Movement speed of the paddle object.</summary> */
             public float Speed = 0f;
 
@@ -20,7 +20,7 @@ namespace uLua {
             /** <summary>Screen bounds which limit the position of the paddle object.</summary> */
             private Vector2 ScreenBounds = Vector2.zero;
 
-            // Access Methods
+            // Properties
             // Public
 
             /// <summary>Access/set the scale of the Paddle object.</summary>
@@ -29,7 +29,7 @@ namespace uLua {
                 set { transform.localScale = new Vector3(value, transform.localScale.y, transform.localScale.z); }
             }
 
-            // Process Methods
+            // Methods
             // Public
 
             /// <summary>Resets the position of the paddle to its starting position.</summary>

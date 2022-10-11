@@ -6,7 +6,7 @@ namespace uLua {
         /// <summary>Class which keeps track of various game settings.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedClass```. */
         public class Settings : ExposedClass<Settings> {
-            // Members
+            // Fields
             /** <summary>Keeps track of the current level.</summary> */
             public int Level = 0;
 
@@ -31,9 +31,6 @@ namespace uLua {
             /** <summary>Multiplier to adjust the brick color intensity.</summary> */
             public float ColorMultiplier = 0f;
 
-            // Access Methods
-            // Public
-
             /// <summary>Public constructor.</summary>
             /** @param Name Sets the name of the object exposed to Lua.
              *  @param Context Sets the context of the object exposed to Lua.
@@ -42,13 +39,16 @@ namespace uLua {
             public Settings(string Name, LuaMonoBehaviour Context = null, bool ExposeOnInit = true, bool EnableResourceScript = false) : base(Name, Context, ExposeOnInit, EnableResourceScript) {
             }
 
+            // Properties
+            // Public
+
             /// <summary>The total speed increment based on the current level.</summary>
             /** This property is exposed to the API. */
             public float TotalSpeedIncrement {
                 get { return (Level-1)*SpeedIncrement; }
             }
 
-            // Process Methods
+            // Methods
             // Public
 
             /// <summary>Increments player score.</summary>

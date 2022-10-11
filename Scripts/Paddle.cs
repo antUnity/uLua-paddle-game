@@ -5,11 +5,11 @@ namespace uLua {
         /// <summary>Wrapper class which exposes paddle objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Paddle : ExposedMonoBehaviour<Paddle> {
-            // Members
+            // Fields
             /** <summary>Reference to the PaddleController component of the paddle object.</summary> */
             private PaddleController Controller = null;
 
-            // Access Methods
+            // Properties
             // Public
 
             /// <summary>Returns the last known contact point of the ball relative to the center of the paddle object.</summary>
@@ -39,7 +39,7 @@ namespace uLua {
                 set { if (Controller) Controller.StartingPosition = value; }
             }
 
-            // Process Methods
+            // Methods
             // Public
 
             /// <summary>Resets the position of the paddle to its starting position.</summary>
