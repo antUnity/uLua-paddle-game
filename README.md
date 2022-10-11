@@ -2,17 +2,18 @@
 
 In this project I have developed an API for a basic paddle game to demonstrate the flexibility of the uLua API framework as a modding tool.
 
-uLua is a Lua API framework for Unity. It aims to streamline the development of an API for your Unity Project using Lua.
+uLua is a Lua Modding framework for Unity. It enables the development of a Lua API which may be used to mod your Unity Project.
 
-uLua wraps around MoonSharp and provides an object oriented Lua API framework.
+uLua wraps around MoonSharp and provides an object oriented Lua Modding framework.
 It works by setting up an application-wide Lua context and exposing game objects to it.
-Objects exposed to the API can then be accessed in Lua, allowing users modify your game by executing Lua scripts at runtime. 
+Objects exposed to the Lua context can then be accessed in Lua, allowing users to modify your game at runtime through the use of Lua scripts.
 
-uLua implements the following features:
-- Script execution framework which allows Lua scripts to be executed from the Resources folder or an external directory.
-- Event handling system which allows you to invoke events in C# and handle them in Lua.
-- Base classes which expose your game objects and data structures to Lua.
-- Callback function system for your API objects.
+uLua includes the following features:
+- Lua script execution from the Resources folder or an external directory.
+- Event system which allows events to be invoked in C# and handled in Lua.
+- Base classes to expose your game objects and data structures to Lua.
+- Callback system for your Lua objects.
+- Ability to override C# methods in Lua.
 
 ## Dependencies
 
