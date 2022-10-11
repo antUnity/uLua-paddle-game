@@ -4,7 +4,7 @@ namespace uLua {
     namespace PaddleGame {
         /// <summary>Wrapper class which exposes paddle objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
-        public class Paddle : ExposedMonoBehaviour<Paddle> {
+        public class Paddle : ExposedMonoBehaviour {
             // Fields
             /** <summary>Reference to the PaddleController component of the paddle object.</summary> */
             private PaddleController Controller = null;

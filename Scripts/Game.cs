@@ -9,7 +9,7 @@ namespace uLua {
     namespace PaddleGame {
         /// <summary>Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
-        public class Game : ExposedMonoBehaviour<Game> {
+        public class Game : ExposedMonoBehaviour {
             // Fields
             /** <summary>Reference to the prefab used to instantiate ball objects.</summary> */
             [SerializeField] private GameObject BallPrefab = null;

@@ -5,7 +5,7 @@ namespace uLua {
         [Serializable]
         /// <summary>Class which keeps track of various game settings.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedClass```. */
-        public class Settings : ExposedClass<Settings> {
+        public class Settings : ExposedClass {
             // Fields
             /** <summary>Keeps track of the current level.</summary> */
             public int Level = 0;

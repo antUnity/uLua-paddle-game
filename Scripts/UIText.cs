@@ -4,7 +4,7 @@ namespace uLua {
     namespace PaddleGame {
         /// <summary>Wrapper class which exposes a UI Text object to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
-        public class UIText : ExposedMonoBehaviour<UIText> {
+        public class UIText : ExposedMonoBehaviour {
             // Fields
             /** <summary>Reference to the Text component of the object.</summary> */
             private Text Text = null;

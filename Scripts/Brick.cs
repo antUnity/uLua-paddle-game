@@ -4,7 +4,7 @@ namespace uLua {
     namespace PaddleGame {
         /// <summary>Wrapper class which exposes brick objects to the API.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
-        public class Brick : ExposedMonoBehaviour<Brick> {
+        public class Brick : ExposedMonoBehaviour {
             // Fields
             /** <summary>Reference to the SpriteRenderer component of the brick object.</summary> */
             private SpriteRenderer SpriteRenderer = null;       //!< 
