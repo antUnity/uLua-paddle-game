@@ -9,13 +9,6 @@ namespace uLua {
             /** <summary>Reference to the BallController component of the ball object.</summary> */
             private BallController Controller = null;
 
-            /// <summary>Static class constructor. Registers the Vector2 type to Lua.</summary>
-            /** This static constructor is only executed once. */
-            static Ball() {
-                API.RegisterType<Vector2>();
-                Lua.Set("Vector2", new Vector2());
-            }
-
             // Properties
             // Public
 

@@ -30,7 +30,7 @@ namespace uLua {
             [SerializeField] private List<Paddle> Paddles = new List<Paddle>();
 
             /** <summary>Structure which keeps track of various game settings.</summary> */
-            [SerializeField] private Settings Settings = new Settings("Settings");
+            [SerializeField] private Settings Settings;
 
             // Properties
             // Public
@@ -272,6 +272,15 @@ namespace uLua {
             /** The event handlers are defined in the Game Lua script in the resource folder. */
             protected override void Awake() {
                 base.Awake();
+
+                // Register Types
+                API.RegisterType<Color>();
+                API.RegisterType<Vector2>();
+                Lua.Set("Color", new Color());
+                Lua.Set("Vector2", new Vector2());
+
+                // Set up
+                Settings = new Settings("Settings");
 
                 API.LoadSavedData(this);
                 API.RegisterEventHandler("SceneLoaded", "OnSceneLoaded", this);

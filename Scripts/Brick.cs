@@ -15,13 +15,6 @@ namespace uLua {
             /** <summary>Maximum health value of the brick.</summary> */
             public int MaxHealth = 1;
 
-            /// <summary>Static class constructor. Registers the Color type to Lua.</summary>
-            /** This static constructor is only executed once. */
-            static Brick() {
-                API.RegisterType<Color>();
-                Lua.Set("Color", new Color());
-            }
-
             // Properties
             // Public
 
