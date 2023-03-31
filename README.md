@@ -1,6 +1,6 @@
 # uLua Paddle Game
 
-uLua is a Lua Modding framework for Unity. It enables the development of a Lua API which may be used to add modding functionality to your Unity Project.
+uLua is a powerful Lua Modding framework for Unity. It enables the development of a Lua API which may be used to mod your Unity game.
 
 uLua wraps around MoonSharp and provides an object oriented Lua Modding framework.
 It works by setting up an application-wide Lua context and exposing game objects to it.
