@@ -7,6 +7,27 @@ namespace uLua {
     /// <summary>Namespace containing the paddle game.</summary>
     /** This is a paddle-style game made as a demo of the uLua toolkit. */
     namespace PaddleGame {
+        /// <summary>
+        /// 
+        /// </summary>
+        public static partial class Events {
+            public static string BoundaryHit {
+                get { return "BoundaryHit"; }
+            }
+
+            public static string BrickDestroyed {
+                get { return "BrickDestroyed"; }
+            }
+
+            public static string BrickHit {
+                get { return "BrickHit"; }
+            }
+
+            public static string UIUpdate {
+                get { return "UIUpdate"; }
+            }
+        }
+
         /// <summary>Manages all ball, brick, and paddle objects in the scene and keeps track of various game settings.</summary>
         /** All public members of this class are exposed to Lua. Inherits from ```uLua.ExposedMonoBehaviour```. */
         public class Game : ExposedMonoBehaviour {
@@ -271,20 +292,24 @@ namespace uLua {
             /// <summary>Loads saved data and registers event handlers.</summary>
             /** The event handlers are defined in the Game Lua script in the resource folder. */
             protected override void Awake() {
-                base.Awake();
-
                 // Register Types
                 API.RegisterType<Color>();
                 API.RegisterType<Vector2>();
                 Lua.Set("Color", new Color());
                 Lua.Set("Vector2", new Vector2());
 
+                // Register Events
+                API.RegisterEvent(Events.BoundaryHit);
+                API.RegisterEvent(Events.BrickDestroyed);
+                API.RegisterEvent(Events.BrickHit);
+                API.RegisterEvent(Events.UIUpdate);
+
+                base.Awake();
+
                 // Set up
                 Settings = new Settings("Settings");
 
                 API.LoadSavedData(this);
-                API.RegisterEventHandler("SceneLoaded", "OnSceneLoaded", this);
-                API.RegisterEventHandler("UIUpdate", "OnUIUpdate", this);
             }
 
             /// <summary>Saves Lua data when the object is destroyed.</summary>
@@ -293,7 +318,6 @@ namespace uLua {
                 base.OnDestroy();
 
                 API.SaveData(this);
-                API.RemoveEventHandlers(this);
             }
         }
     }

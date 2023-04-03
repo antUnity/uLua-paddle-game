@@ -56,7 +56,7 @@ namespace uLua {
              *  @param Number The number to be added to the score. */
             public void AddScore(int Number) {
                 Score += Number;
-                API.Invoke("UIUpdate");
+                API.Invoke(Events.UIUpdate);
             }
 
             /// <summary>Increments the game level.</summary>
@@ -64,7 +64,7 @@ namespace uLua {
              *  @param Number (Optional) The number of levels to add. Defaults to 1. */
             public void AddLevel(int Number = 1) {
                 Level += Number;
-                API.Invoke("UIUpdate");
+                API.Invoke(Events.UIUpdate);
             }
 
             /// <summary>Increments player lives.</summary>
@@ -72,7 +72,7 @@ namespace uLua {
              *  @param Number (Optional) The number of lives to add. Defaults to 1. */
             public void AddLife(int Number = 1) {
                 Lives += Number;
-                API.Invoke("UIUpdate");
+                API.Invoke(Events.UIUpdate);
             }
 
             /// <summary>Resets the settings and updates the high score.</summary>
@@ -84,7 +84,7 @@ namespace uLua {
                 Lives = 3;
                 Score = 0;
 
-                API.Invoke("UIUpdate");
+                API.Invoke(Events.UIUpdate);
             }
         }
     }

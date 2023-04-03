@@ -34,7 +34,7 @@ namespace uLua {
                 Health -= Damage;
 
                 if (Health <= 0) {
-                    API.Invoke("BrickDestroyed", this);
+                    API.Invoke(Events.BrickDestroyed, this);
 
                     Destroy(gameObject);
                 }
@@ -52,7 +52,7 @@ namespace uLua {
 
             /// <summary>Invokes the BrickHit event.</summary>
             private void OnCollisionEnter2D(Collision2D Other) {
-                API.Invoke("BrickHit", this);
+                API.Invoke(Events.BrickHit, this);
                 InvokeLua("OnHit");
             }
         }

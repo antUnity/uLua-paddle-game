@@ -14,7 +14,7 @@ namespace uLua {
                     if (Object) {
                         Ball Ball = Object.GetComponent<Ball>();
                         if (Ball) {
-                            if (name == "Bottom") API.Invoke("BoundaryHit", Ball);
+                            if (name == "Bottom") API.Invoke(Events.BoundaryHit, Ball);
                         }
                     }
                 }
