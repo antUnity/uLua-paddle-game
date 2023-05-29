@@ -136,8 +136,3 @@ function Game:OnBrickHit(Brick)
 
 	Brick:Damage(1);
 end
-
--- The following commands register event handlers for different events invoked within Unity.
-RegisterEventHandler("BoundaryHit", "OnBoundaryHit", Game);			-- Callback for BoundaryHit event.
-RegisterEventHandler("BrickDestroyed", "OnBrickDestroyed", Game);	-- Callback for BrickDestroyed event.
-RegisterEventHandler("BrickHit", "OnBrickHit", Game);				-- Callback for BrickHit event.

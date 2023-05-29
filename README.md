@@ -8,11 +8,12 @@ Objects exposed to the Lua context can then be accessed in Lua scripts, allowing
 
 uLua includes the following features:
 - Lua script execution from the Resources folder or an external directory.
-- The ability to organise user scripts in packages which can be easily installed and removed.
-- Event and callback system which allows events and functions to be invoked in C# but implemented in Lua.
 - Base classes to expose your game objects and data structures to Lua.
-- Ability to override C# methods in Lua for specific objects.
+- Event and callback systems which allow events and functions to be invoked in C# but implemented in Lua.
+- The ability to organise scripts in packages which can be easily installed and removed.
 
+This project is the result of many hours of hard work. Please support me by leaving a review on the asset store!
+Follow my [Twitter](https://twitter.com/_ANTSoftware "@_ANTSoftware")!
 
 ## Dependencies
 
@@ -110,7 +111,7 @@ The following object callback functions are invoked during the game and may be h
 
 ***PaddleGame.lua***
 ```
---[[ August 2022 																										]]
+--[[ May 2023 																											]]
 --[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game.						]]
 --[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.							]]
 
@@ -248,9 +249,4 @@ function Game:OnBrickHit(Brick)
 
 	Brick:Damage(1);
 end
-
--- The following commands register event handlers for different events invoked within Unity.
-RegisterEventHandler("BoundaryHit", "OnBoundaryHit", Game);			-- Callback for BoundaryHit event.
-RegisterEventHandler("BrickDestroyed", "OnBrickDestroyed", Game);	-- Callback for BrickDestroyed event.
-RegisterEventHandler("BrickHit", "OnBrickHit", Game);				-- Callback for BrickHit event.
 ```

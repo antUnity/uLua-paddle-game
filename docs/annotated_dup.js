@@ -6,6 +6,7 @@ var annotated_dup =
         [ "BallController", "classu_lua_1_1_paddle_game_1_1_ball_controller.html", "classu_lua_1_1_paddle_game_1_1_ball_controller" ],
         [ "Boundary", "classu_lua_1_1_paddle_game_1_1_boundary.html", null ],
         [ "Brick", "classu_lua_1_1_paddle_game_1_1_brick.html", "classu_lua_1_1_paddle_game_1_1_brick" ],
+        [ "Events", "classu_lua_1_1_paddle_game_1_1_events.html", null ],
         [ "Game", "classu_lua_1_1_paddle_game_1_1_game.html", "classu_lua_1_1_paddle_game_1_1_game" ],
         [ "Paddle", "classu_lua_1_1_paddle_game_1_1_paddle.html", "classu_lua_1_1_paddle_game_1_1_paddle" ],
         [ "PaddleController", "classu_lua_1_1_paddle_game_1_1_paddle_controller.html", "classu_lua_1_1_paddle_game_1_1_paddle_controller" ],

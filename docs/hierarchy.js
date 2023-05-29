@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "uLua.PaddleGame.Events", "classu_lua_1_1_paddle_game_1_1_events.html", null ],
     [ "ExposedClass", null, [
       [ "uLua.PaddleGame.Settings", "classu_lua_1_1_paddle_game_1_1_settings.html", null ]
     ] ],

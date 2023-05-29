@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">uLua Paddle Game<span id="projectnumber">&#160;v1.3.2</span>
+   <div id="projectname">uLua Paddle Game<span id="projectnumber">&#160;v2.0.0</span>
    </div>
    <div id="projectbrief">A paddle game for Unity  made as an example use of the uLua toolkit.</div>
   </td>
@@ -90,11 +90,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p ><a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> wraps around MoonSharp and provides an object oriented Lua Modding framework. It works by setting up an application-wide Lua context and exposing game objects to it. Objects exposed to the Lua context can then be accessed in Lua scripts, allowing users to interact with your game at runtime.</p>
 <p ><a class="el" href="namespaceu_lua.html" title="Namespace containing the uLua project.">uLua</a> includes the following features:</p><ul>
 <li>Lua script execution from the Resources folder or an external directory.</li>
-<li>The ability to organise user scripts in packages which can be easily installed and removed.</li>
-<li>Event and callback system which allows events and functions to be invoked in C# but implemented in Lua.</li>
 <li>Base classes to expose your game objects and data structures to Lua.</li>
-<li>Ability to override C# methods in Lua for specific objects.</li>
+<li>Event and callback systems which allow events and functions to be invoked in C# but implemented in Lua.</li>
+<li>The ability to organise scripts in packages which can be easily installed and removed.</li>
 </ul>
+<p >This project is the result of many hours of hard work. Please support me by leaving a review on the asset store! Follow my <a href="https://twitter.com/_ANTSoftware" title="@_ANTSoftware">Twitter</a>!</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Dependencies</h1>
 <ul>
@@ -159,7 +159,7 @@ Usage Tutorial</h1>
 <li><b>Brick:OnHit()</b>: Called when a brick hits an object. To handle in the API, the brick name must be known.</li>
 <li><b>Paddle:OnHit()</b>: Called when a paddle hits an object. To handle in the API, the paddle name must be known.</li>
 </ul>
-<p ><em><b>PaddleGame.lua</b></em> </p><div class="fragment"><div class="line">--[[ August 2022                                                                                                        ]]</div>
+<p ><em><b>PaddleGame.lua</b></em> </p><div class="fragment"><div class="line">--[[ May 2023                                                                                                           ]]</div>
 <div class="line">--[[ This Lua script implements a large portion of the gameplay in this simple Paddle-style game.                       ]]</div>
 <div class="line">--[[ It is meant to demonstrate the flexibility of the uLua API framework as a modding tool.                            ]]</div>
 <div class="line"> </div>
@@ -297,11 +297,6 @@ Usage Tutorial</h1>
 <div class="line"> </div>
 <div class="line">    Brick:Damage(1);</div>
 <div class="line">end</div>
-<div class="line"> </div>
-<div class="line">-- The following commands register event handlers for different events invoked within Unity.</div>
-<div class="line">RegisterEventHandler(&quot;BoundaryHit&quot;, &quot;OnBoundaryHit&quot;, Game);         -- Callback for BoundaryHit event.</div>
-<div class="line">RegisterEventHandler(&quot;BrickDestroyed&quot;, &quot;OnBrickDestroyed&quot;, Game);   -- Callback for BrickDestroyed event.</div>
-<div class="line">RegisterEventHandler(&quot;BrickHit&quot;, &quot;OnBrickHit&quot;, Game);               -- Callback for BrickHit event.</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['maxhealth_0',['MaxHealth',['../classu_lua_1_1_paddle_game_1_1_brick.html#af5c61d7013e678fcd9ecff5f26ae9cce',1,'uLua::PaddleGame::Brick']]],
-  ['maximumlevel_1',['MaximumLevel',['../classu_lua_1_1_paddle_game_1_1_settings.html#a95ccd36c73cbaa8102dd17806b06aa95',1,'uLua::PaddleGame::Settings']]],
-  ['message_2',['Message',['../classu_lua_1_1_paddle_game_1_1_u_i_text.html#afdb8b2e31c75d147e6567d72b2bbe38d',1,'uLua::PaddleGame::UIText']]]
+  ['level_0',['Level',['../classu_lua_1_1_paddle_game_1_1_settings.html#a8cd54490d5d8fe927052efa9779ee2f2',1,'uLua::PaddleGame::Settings']]],
+  ['lives_1',['Lives',['../classu_lua_1_1_paddle_game_1_1_settings.html#a3f3ed81b0ce449e104e0c240ea92d8e5',1,'uLua::PaddleGame::Settings']]]
 ];

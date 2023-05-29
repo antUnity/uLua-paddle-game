@@ -35,8 +35,8 @@ namespace uLua {
             /** @param Name Sets the name of the object exposed to Lua.
              *  @param Context Sets the context of the object exposed to Lua.
                 @param ExposeOnInit (Optional) Enables/disables the automatic exposure of this object to Lua.
-                @param EnableResourceScript (Optional) Enables/disables the execution of a Lua script for this object after it is exposed. */
-            public Settings(string Name, LuaMonoBehaviour Context = null, bool ExposeOnInit = true, bool EnableResourceScript = false) : base(Name, Context, ExposeOnInit, EnableResourceScript) {
+                @param EnableObjectScript (Optional) Enables/disables the execution of a Lua script for this object after it is exposed. */
+            public Settings(string Name, LuaMonoBehaviour Context = null, bool ExposeOnInit = true, bool EnableObjectScript = false) : base(Name, Context, ExposeOnInit, EnableObjectScript) {
             }
 
             // Properties
