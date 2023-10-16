@@ -288,16 +288,6 @@ namespace uLua {
             }
 
             // Protected
-            
-            /// <summary>Loads saved data.</summary>
-            protected override void Awake() {
-                base.Awake();
-
-                // Set up
-                Settings = new Settings("Settings");
-
-                API.LoadSavedData(this);
-            }
 
             /// <summary> Registers events.</summary>
             /** The event handlers are defined in the Game Lua script in the resource folder. */
@@ -313,6 +303,11 @@ namespace uLua {
                 API.RegisterEvent(Events.BrickDestroyed);
                 API.RegisterEvent(Events.BrickHit);
                 API.RegisterEvent(Events.UIUpdate);
+
+                // Set up
+                Settings = new Settings("Settings");
+
+                API.LoadSavedData(this);
 
                 base.OnExpose();
             }
